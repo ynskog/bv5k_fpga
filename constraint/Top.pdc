@@ -1,0 +1,62 @@
+# Microsemi Physical design constraints file
+
+# Version: v11.8 SP3 11.8.3.6
+
+# Design Name: Top 
+
+# Input Netlist Format: edif 
+
+# Family: ProASIC3 , Die: A3P1000 , Package: 144 FBGA , Speed grade: -1 
+
+# Date generated: Sat Sep 01 11:02:04 2018 
+
+
+#
+# IO banks setting
+#
+
+set_iobank Bank3 -vcci 2.50 -fixed no
+set_iobank Bank2 -vcci 2.50 -fixed no
+set_iobank Bank1 -vcci 2.50 -fixed no
+
+#
+# I/O constraints
+#
+
+set_io agc_clrn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K6 -fixed yes
+set_io agc_csn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H4 -fixed yes
+set_io agc_din -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K5 -fixed yes
+set_io agc_sclk -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J5 -fixed yes
+set_io flir_csn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H2 -fixed yes
+set_io flir_mclk -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname F3 -fixed yes
+set_io flir_mosi -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname F1 -fixed yes
+set_io flir_pwrdn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J4 -fixed yes
+set_io flir_rstn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K4 -fixed yes
+set_io flir_sck -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname G1 -fixed yes
+set_io mclk_i -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname L4 -fixed yes
+set_io mclk_q -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K9 -fixed yes
+set_io miso_n -iostd LVDS -OUT_DRIVE 24 -SLEW High -OUT_LOAD 0 -pinname C11 -fixed yes
+set_io miso_p -iostd LVDS -OUT_DRIVE 24 -SLEW High -OUT_LOAD 0 -pinname C10 -fixed yes
+set_io mosi_n -iostd LVDS -pinname E5 -fixed yes
+set_io mosi_p -iostd LVDS -pinname D4 -fixed yes
+set_io rdy_n -iostd LVDS -OUT_DRIVE 24 -SLEW High -OUT_LOAD 0 -pinname D10 -fixed yes
+set_io rdy_p -iostd LVDS -OUT_DRIVE 24 -SLEW High -OUT_LOAD 0 -pinname D9 -fixed yes
+set_io sck_n -iostd LVDS -pinname D3 -fixed yes
+set_io sck_p -iostd LVDS -pinname C3 -fixed yes
+set_io scka_i -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K2 -fixed yes
+set_io scka_q -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname M6 -fixed yes
+set_io sckb_i -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J2 -fixed yes
+set_io sckb_q -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname L6 -fixed yes
+set_io sdi_i -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname M2 -fixed yes
+set_io sdi_q -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname M7 -fixed yes
+set_io sync_i -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname M3 -fixed yes
+set_io sync_q -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname M8 -fixed yes
+set_io vco_clrn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J9 -fixed yes
+set_io vco_csn -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname J6 -fixed yes
+set_io vco_din -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname H8 -fixed yes
+set_io vco_sclk -iostd LVCMOS25_50 -OUT_DRIVE 12 -SLEW High -RES_PULL None -SKEW Off -OUT_LOAD 35 -pinname K8 -fixed yes
+set_io xosc -iostd LVCMOS25_50 -RES_PULL None -pinname G4 -fixed yes
+set_io led1_blu -pinname B10 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io led1_grn -pinname B9 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io led2_blu -pinname A5 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io led2_grn -pinname A4 -iostd LVCMOS25_50 -RES_PULL None -fixed yes

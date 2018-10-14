@@ -1,0 +1,436 @@
+KEY LIBERO "11.8"
+KEY CAPTURE "11.8.3.6"
+KEY DEFAULT_IMPORT_LOC ""
+KEY DEFAULT_OPEN_LOC ""
+KEY ProjectID "0"
+KEY HDLTechnology "VERILOG"
+KEY VERILOGMODE "VERILOG2001"
+KEY VHDLMODE "VHDL2008"
+KEY UseConstraintFlowTechnology "FALSE"
+KEY VendorTechnology_Family "ProASIC3"
+KEY VendorTechnology_Die "IS8X8M2"
+KEY VendorTechnology_Package "fg144"
+KEY VendorTechnology_Speed "-1"
+KEY VendorTechnology_DieVoltage "1.5"
+KEY VendorTechnology_PART_RANGE "IND"
+KEY VendorTechnology_DSW_VCCA_VOLTAGE_RAMP_RATE ""
+KEY VendorTechnology_IO_DEFT_STD "LVCMOS25_50"
+KEY VendorTechnology_OPCONR ""
+KEY VendorTechnology_PLL_SUPPLY ""
+KEY VendorTechnology_RAD_EXPOSURE ""
+KEY VendorTechnology_RESERVEMIGRATIONPINS "1"
+KEY VendorTechnology_RESTRICTPROBEPINS "1"
+KEY VendorTechnology_RESTRICTSPIPINS "0"
+KEY VendorTechnology_SYSTEM_CONTROLLER_SUSPEND_MODE ""
+KEY VendorTechnology_TARGETDEVICESFORMIGRATION "IS8X8M2"
+KEY VendorTechnology_TEMPR "IND"
+KEY VendorTechnology_UNUSED_MSS_IO_RESISTOR_PULL "None"
+KEY VendorTechnology_VCCI_1.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_1.8_VOLTR "COM"
+KEY VendorTechnology_VCCI_2.5_VOLTR "COM"
+KEY VendorTechnology_VCCI_3.3_VOLTR "COM"
+KEY VendorTechnology_VOLTR "IND"
+KEY ProjectLocation "C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000"
+KEY ProjectDescription ""
+KEY Pa4PeripheralNewSeq "GOOD"
+KEY SimulationType "VERILOG"
+KEY Vendor "Actel"
+KEY ActiveRoot "Top::work"
+LIST REVISIONS
+VALUE="Impl1",NUM=1
+VALUE="Impl2",NUM=2
+CURREV=2
+ENDLIST
+LIST FileManager
+VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
+STATE="utd"
+TIME="1524249721"
+SIZE="437"
+ENDFILE
+VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
+STATE="utd"
+TIME="1524249721"
+SIZE="413"
+ENDFILE
+VALUE "<project>\constraint\Top.pdc,pdc"
+STATE="utd"
+TIME="1539505355"
+SIZE="4194"
+ENDFILE
+VALUE "<project>\constraint\top_sdc.sdc,sdc"
+STATE="utd"
+TIME="1539508516"
+SIZE="1752"
+ENDFILE
+VALUE "<project>\designer\impl2\top.adb,adb"
+STATE="ood"
+TIME="1539508349"
+SIZE="1011712"
+ENDFILE
+VALUE "<project>\designer\impl2\top.ide_des,ide_des"
+STATE="utd"
+TIME="1539508225"
+SIZE="383"
+ENDFILE
+VALUE "<project>\designer\impl2\Top_compile_log.rpt,log"
+STATE="utd"
+TIME="1539508349"
+SIZE="46816"
+ENDFILE
+VALUE "<project>\designer\impl2\Top_timingconstraints_log.rpt,log"
+STATE="utd"
+TIME="1539508521"
+SIZE="497"
+ENDFILE
+VALUE "<project>\hdl\adc_if.v,hdl"
+STATE="utd"
+TIME="1537019574"
+SIZE="5497"
+ENDFILE
+VALUE "<project>\hdl\ledctrl.v,hdl"
+STATE="utd"
+TIME="1539368421"
+SIZE="940"
+ENDFILE
+VALUE "<project>\hdl\master_if.v,hdl"
+STATE="utd"
+TIME="1537107130"
+SIZE="1548"
+ENDFILE
+VALUE "<project>\hdl\spiMasterWrite.sv,hdl"
+STATE="utd"
+TIME="1536495563"
+SIZE="1969"
+ENDFILE
+VALUE "<project>\hdl\spi_if.v,hdl"
+STATE="utd"
+TIME="1535793758"
+SIZE="113"
+ENDFILE
+VALUE "<project>\hdl\Top.v,hdl"
+STATE="utd"
+TIME="1539505156"
+SIZE="5971"
+ENDFILE
+VALUE "<project>\simulation\run.do,do"
+STATE="utd"
+TIME="1539368337"
+SIZE="1101"
+ENDFILE
+VALUE "<project>\simulation\wave.do,do"
+STATE="utd"
+TIME="1537106468"
+SIZE="7130"
+ENDFILE
+VALUE "<project>\smartgen\adc_fifo\adc_fifo.cxf,actgen_cxf"
+STATE="utd"
+TIME="1537104174"
+SIZE="2661"
+ENDFILE
+VALUE "<project>\smartgen\adc_fifo\adc_fifo.gen,gen"
+STATE="utd"
+TIME="1537104171"
+SIZE="984"
+PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\adc_fifo\adc_fifo.log,log"
+STATE="utd"
+TIME="1537104173"
+SIZE="3587"
+PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\adc_fifo\adc_fifo.v,hdl"
+STATE="utd"
+TIME="1537104173"
+SIZE="181087"
+PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\mainPll\mainPll.cxf,actgen_cxf"
+STATE="utd"
+TIME="1537015776"
+SIZE="1476"
+ENDFILE
+VALUE "<project>\smartgen\mainPll\mainPll.gen,gen"
+STATE="utd"
+TIME="1537015773"
+SIZE="559"
+PARENT="<project>\smartgen\mainPll\mainPll.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\mainPll\mainPll.log,log"
+STATE="utd"
+TIME="1537015774"
+SIZE="2755"
+PARENT="<project>\smartgen\mainPll\mainPll.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\smartgen\mainPll\mainPll.v,hdl"
+STATE="utd"
+TIME="1537015774"
+SIZE="2798"
+PARENT="<project>\smartgen\mainPll\mainPll.cxf"
+IS_READONLY="TRUE"
+ENDFILE
+VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
+STATE="utd"
+TIME="1539368195"
+SIZE="3656"
+ENDFILE
+VALUE "<project>\synthesis\top.edn,syn_edn"
+STATE="utd"
+TIME="1539508622"
+SIZE="917169"
+ENDFILE
+VALUE "<project>\synthesis\top.so,so"
+STATE="utd"
+TIME="1539507671"
+SIZE="228"
+ENDFILE
+VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1539508622"
+SIZE="310"
+ENDFILE
+VALUE "<project>\synthesis\top_syn.prj,prj"
+STATE="utd"
+TIME="1539507672"
+SIZE="2177"
+ENDFILE
+ENDLIST
+LIST UsedFile
+ENDLIST
+LIST NewModulesInfo
+LIST "Top::work"
+FILE "<project>\hdl\Top.v,hdl"
+LIST AssociatedStimulus
+VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
+ENDLIST
+LIST ProjectState5.1
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+ENDLIST
+LIST AssociatedStimulus
+LIST Top
+VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
+ENDLIST
+ENDLIST
+LIST Other_Association
+ENDLIST
+LIST SimulationOptions
+UseAutomaticDoFile=true
+IncludeWaveDo=false
+Type=max
+RunTime=1000ns
+Resolution=1ps
+VsimOpt=
+EntityName=testur_topp
+TopInstanceName=<top>_0
+DoFileName=
+DoFileName2=wave.do
+DoFileParams=
+DisplayDUTWave=false
+LogAllSignals=false
+DisablePulseFiltering=false
+DumpVCD=false
+VCDFileName=power.vcd
+VHDL2008=false
+Verilog2001=false
+SystemVerilog=false
+TimeUnit=1
+TimeUnitBase=ns
+Precision=100
+PrecisionBase=ps
+ENDLIST
+LIST ModelSimLibPath
+UseCustomPath=FALSE
+LibraryPath=
+ENDLIST
+LIST GlobalFlowOptions
+GenerateHDLAfterSynthesis=FALSE
+GenerateHDLAfterPhySynthesis=FALSE
+RunDRCAfterSynthesis=FALSE
+AutoCheckConstraints=TRUE
+UpdateModelSimIni=TRUE
+NoIOMode=FALSE
+PeriInitStandalone=FALSE
+EnableViewDraw=FALSE
+UpdateViewDrawIni=TRUE
+GenerateHDLFromSchematic=TRUE
+VmNetlistFlowOn=FALSE
+EnableDesignSeparationOn=FALSE
+EnableSETMitigationOn=FALSE
+DisplayFanoutLimit=10
+AbortFlowOnPDCErrorsOn=TRUE
+AbortFlowOnSDCErrorsOn=TRUE
+InstantiateInSmartDesign=TRUE
+FlashProInputFile=pdb
+SmartGenCompileReport=T
+ENDLIST
+LIST PhySynthesisOptions
+ENDLIST
+LIST Profiles
+NAME="SoftConsole"
+FUNCTION="SoftwareIDE"
+TOOL="SoftConsole"
+LOCATION="eclipse.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Synplify Pro ME"
+FUNCTION="Synthesis"
+TOOL="Synplify Pro ME"
+LOCATION="C:\Microsemi\Libero_SoC_v11.8\SynplifyPro\bin\synplify_pro.exe"
+PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
+BATCH=1
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="ModelSim ME"
+FUNCTION="Simulation"
+TOOL="ModelSim"
+LOCATION="C:\Microsemi\Libero_SoC_v11.8\Modelsim\win32acoem\modelsim.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="FPExpress"
+FUNCTION="Program"
+TOOL="FlashPro"
+LOCATION="C:\Microsemi\Libero_SoC_v11.8\Designer\bin\FPExpress.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+NAME="Identify Debugger"
+FUNCTION="IdentifyDebugger"
+TOOL="Identify Debugger"
+LOCATION="C:\Microsemi\Libero_SoC_v11.8\Identify\bin\identify_debugger.exe"
+PARAM=""
+BATCH=0
+LICENSE=""
+IS32BIT="1"
+EndProfile
+ENDLIST
+LIST ProjectState5.1
+LIST "Top::work"
+LIST Impl1
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+LIST Impl2
+LiberoState=Post_Synthesis
+ideSTIMULUS=StateSuccess
+ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+LIST FlowOptions
+UsePhySynth=FALSE
+UseSynth=TRUE
+UseFhbAutoInst=FALSE
+ENDLIST
+Used_File_List
+ENDUsed_File_List
+ENDLIST
+ENDLIST
+ENDLIST
+LIST ExcludePackageForSimulation
+ENDLIST
+LIST ExcludePackageForSynthesis
+ENDLIST
+LIST IncludeModuleForSimulation
+ENDLIST
+LIST CDBOrder
+ENDLIST
+LIST UserCustomizedFileList
+ENDLIST
+LIST OpenedFileList
+ORIENTATION;HORIZONTAL
+Reports;Reports;0
+ReportsCurrentItem;Compile:Top_compile_log.rpt
+StartPage;StartPage;0
+HDL;hdl\Top.v;0
+HDL;hdl\spi_if.v;0
+HDL;constraint\top_sdc.sdc;0
+ACTIVEVIEW;Reports
+ENDLIST
+LIST ModuleSubBlockList
+LIST "adc_fifo::work","smartgen\adc_fifo\adc_fifo.v","TRUE","FALSE"
+ENDLIST
+LIST "adc_if::work","hdl\adc_if.v","FALSE","FALSE"
+ENDLIST
+LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
+ENDLIST
+LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
+ENDLIST
+LIST "ledctrl::work","hdl\ledctrl.v","FALSE","FALSE"
+ENDLIST
+LIST "mainPll::work","smartgen\mainPll\mainPll.v","TRUE","FALSE"
+ENDLIST
+LIST "master_if::work","hdl\master_if.v","FALSE","FALSE"
+ENDLIST
+LIST "spi_if::work","hdl\spi_if.v","FALSE","FALSE"
+ENDLIST
+LIST "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
+ENDLIST
+LIST "Top::work","hdl\Top.v","FALSE","FALSE"
+SUBBLOCK "adc_fifo::work","smartgen\adc_fifo\adc_fifo.v","TRUE","FALSE"
+SUBBLOCK "adc_if::work","hdl\adc_if.v","FALSE","FALSE"
+SUBBLOCK "mainPll::work","smartgen\mainPll\mainPll.v","TRUE","FALSE"
+SUBBLOCK "master_if::work","hdl\master_if.v","FALSE","FALSE"
+SUBBLOCK "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
+ENDLIST
+LIST "testur_topp::work","stimulus\testur_topp.v","FALSE","TRUE"
+SUBBLOCK "Top::work","hdl\Top.v","FALSE","FALSE"
+ENDLIST
+ENDLIST
+LIST ActiveTestBenchList
+LIST "Top::work"
+ACTIVETESTBENCH "testur_topp::work","stimulus\testur_topp.v","FALSE"
+ENDLIST
+ENDLIST
+LIST IOTabList
+ENDLIST
+LIST FPTabList
+ENDLIST
+LIST TimingTabList
+VALUE "constraint\top_sdc.sdc"
+ENDLIST
+LIST FDCTabList
+ENDLIST
