@@ -105,13 +105,13 @@ module adc_if
                 end
     
                 wait_prog_s: begin
-                    if(drl) state_rg <= program_s;
+                    if(busy) state_rg <= program_s;
                 end
 
                 // start programming
                 program_s : begin
                     // Here we wait for the conversion to finish before we can start programming
-                    if(~drl) begin
+                    if(~busy) begin
                         sdi <= ctrlword_rg[bitcnt_rg-1];
                         bitcnt_rg <= bitcnt_rg - 1;
                         state_rg <= prghigh_s;
@@ -136,7 +136,6 @@ module adc_if
                 end
 
                 convert_s: begin
-                   //mclk <= 1'b1; 
                    if(readoutTrigger) begin
                     bitcnt_rg <= 6'd32;
                     state_rg <= busy_s;

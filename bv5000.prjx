@@ -4,7 +4,7 @@ KEY DEFAULT_IMPORT_LOC ""
 KEY DEFAULT_OPEN_LOC ""
 KEY ProjectID "0"
 KEY HDLTechnology "VERILOG"
-KEY VERILOGMODE "VERILOG2001"
+KEY VERILOGMODE "SYSTEMVERILOG"
 KEY VHDLMODE "VHDL2008"
 KEY UseConstraintFlowTechnology "FALSE"
 KEY VendorTechnology_Family "ProASIC3"
@@ -38,63 +38,77 @@ KEY Vendor "Actel"
 KEY ActiveRoot "Top::work"
 LIST REVISIONS
 VALUE="Impl1",NUM=1
-VALUE="Impl2",NUM=2
-CURREV=2
+CURREV=1
 ENDLIST
 LIST FileManager
-VALUE "<project>\component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf,actgen_cxf"
-STATE="utd"
-TIME="1524249721"
-SIZE="437"
-ENDFILE
-VALUE "<project>\component\work\DESIGN_IO\DESIGN_IO.cxf,actgen_cxf"
-STATE="utd"
-TIME="1524249721"
-SIZE="413"
-ENDFILE
 VALUE "<project>\constraint\Top.pdc,pdc"
 STATE="utd"
-TIME="1539505355"
-SIZE="4194"
+TIME="1540717536"
+SIZE="4618"
 ENDFILE
-VALUE "<project>\constraint\top_sdc.sdc,sdc"
+VALUE "<project>\constraint\Top.sdc,sdc"
 STATE="utd"
-TIME="1539508516"
-SIZE="1752"
+TIME="1539508808"
+SIZE="1842"
 ENDFILE
-VALUE "<project>\designer\impl2\top.adb,adb"
+VALUE "<project>\designer\impl1\top.adb,adb"
 STATE="ood"
-TIME="1539508349"
-SIZE="1011712"
+TIME="1540129993"
+SIZE="2147328"
 ENDFILE
-VALUE "<project>\designer\impl2\top.ide_des,ide_des"
+VALUE "<project>\designer\impl1\top.ide_des,ide_des"
 STATE="utd"
-TIME="1539508225"
-SIZE="383"
+TIME="1540717591"
+SIZE="1242"
 ENDFILE
-VALUE "<project>\designer\impl2\Top_compile_log.rpt,log"
+VALUE "<project>\designer\impl1\Top_compile_log.rpt,log"
 STATE="utd"
-TIME="1539508349"
-SIZE="46816"
+TIME="1540717592"
+SIZE="902"
 ENDFILE
-VALUE "<project>\designer\impl2\Top_timingconstraints_log.rpt,log"
+VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
-TIME="1539508521"
-SIZE="497"
+TIME="1540130105"
+SIZE="165521"
+ENDFILE
+VALUE "<project>\designer\impl1\top_fp\top.pro,pro"
+STATE="utd"
+TIME="1540130105"
+SIZE="2403"
+ENDFILE
+VALUE "<project>\designer\impl1\top_identify.adb,adb"
+STATE="ood"
+TIME="1540717125"
+SIZE="3762688"
+ENDFILE
+VALUE "<project>\designer\impl1\top_identify.ide_des,ide_des"
+STATE="utd"
+TIME="1540717129"
+SIZE="1291"
+ENDFILE
+VALUE "<project>\designer\impl1\top_identify_fp\projectData\top_identify.pdb,pdb"
+STATE="utd"
+TIME="1540716284"
+SIZE="188462"
+ENDFILE
+VALUE "<project>\designer\impl1\top_identify_fp\top_identify.pro,pro"
+STATE="utd"
+TIME="1540716284"
+SIZE="2457"
 ENDFILE
 VALUE "<project>\hdl\adc_if.v,hdl"
 STATE="utd"
-TIME="1537019574"
+TIME="1540716907"
 SIZE="5497"
 ENDFILE
 VALUE "<project>\hdl\ledctrl.v,hdl"
 STATE="utd"
-TIME="1539368421"
+TIME="1539797558"
 SIZE="940"
 ENDFILE
 VALUE "<project>\hdl\master_if.v,hdl"
 STATE="utd"
-TIME="1537107130"
+TIME="1540713987"
 SIZE="1548"
 ENDFILE
 VALUE "<project>\hdl\spiMasterWrite.sv,hdl"
@@ -109,13 +123,28 @@ SIZE="113"
 ENDFILE
 VALUE "<project>\hdl\Top.v,hdl"
 STATE="utd"
-TIME="1539505156"
-SIZE="5971"
+TIME="1540716937"
+SIZE="6573"
+ENDFILE
+VALUE "<project>\hdl\VCO_ctrl.sv,hdl"
+STATE="utd"
+TIME="1540146260"
+SIZE="1027"
+ENDFILE
+VALUE "<project>\hdl\VCO_ctrl.v,hdl"
+STATE="utd"
+TIME="1540132122"
+SIZE="733"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1539368337"
-SIZE="1101"
+TIME="1539883696"
+SIZE="1103"
+ENDFILE
+VALUE "<project>\simulation\run_custom.do,do"
+STATE="utd"
+TIME="1540714489"
+SIZE="1090"
 ENDFILE
 VALUE "<project>\simulation\wave.do,do"
 STATE="utd"
@@ -124,83 +153,74 @@ SIZE="7130"
 ENDFILE
 VALUE "<project>\smartgen\adc_fifo\adc_fifo.cxf,actgen_cxf"
 STATE="utd"
-TIME="1537104174"
+TIME="1540713372"
 SIZE="2661"
 ENDFILE
 VALUE "<project>\smartgen\adc_fifo\adc_fifo.gen,gen"
 STATE="utd"
-TIME="1537104171"
-SIZE="984"
+TIME="1540713368"
+SIZE="983"
 PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\adc_fifo\adc_fifo.log,log"
 STATE="utd"
-TIME="1537104173"
-SIZE="3587"
+TIME="1540713370"
+SIZE="3585"
 PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\adc_fifo\adc_fifo.v,hdl"
 STATE="utd"
-TIME="1537104173"
-SIZE="181087"
+TIME="1540713370"
+SIZE="125624"
 PARENT="<project>\smartgen\adc_fifo\adc_fifo.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.cxf,actgen_cxf"
 STATE="utd"
-TIME="1537015776"
+TIME="1539884972"
 SIZE="1476"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.gen,gen"
 STATE="utd"
-TIME="1537015773"
+TIME="1539884969"
 SIZE="559"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.log,log"
 STATE="utd"
-TIME="1537015774"
+TIME="1539884970"
 SIZE="2755"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.v,hdl"
 STATE="utd"
-TIME="1537015774"
+TIME="1539884970"
 SIZE="2798"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
 STATE="utd"
-TIME="1539368195"
-SIZE="3656"
+TIME="1539513715"
+SIZE="3857"
 ENDFILE
-VALUE "<project>\synthesis\top.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\top.so,so"
 STATE="utd"
-TIME="1539508622"
-SIZE="917169"
-ENDFILE
-VALUE "<project>\synthesis\top.so,so"
-STATE="utd"
-TIME="1539507671"
-SIZE="228"
-ENDFILE
-VALUE "<project>\synthesis\top_sdc.sdc,syn_sdc"
-STATE="utd"
-TIME="1539508622"
-SIZE="310"
+TIME="1540717680"
+SIZE="292"
 ENDFILE
 VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
-TIME="1539507672"
-SIZE="2177"
+TIME="1540717684"
+SIZE="3462"
 ENDFILE
 ENDLIST
 LIST UsedFile
+VALUE "<project>\hdl\VCO_ctrl.v,VCO_ctrl"
 ENDLIST
 LIST NewModulesInfo
 LIST "Top::work"
@@ -210,27 +230,29 @@ VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Top.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 UseFhbAutoInst=FALSE
 ENDLIST
 Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
+VALUE "<project>\synthesis\Top.vm,syn_vm"
+VALUE "<project>\synthesis\top.edn,syn_edn"
+VALUE "<project>\synthesis\Top_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\Top.v,syn_hdl"
+VALUE "<project>\phy_synthesis\Top_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\Top_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\Top_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\Top_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\Top_palace.v,palace_hdl"
+VALUE "<project>\designer\impl1\top.adb,adb"
+VALUE "<project>\designer\impl1\top.prb,prb"
+VALUE "<project>\designer\impl1\top.fdb,fdb"
+VALUE "<project>\designer\impl1\top.stp,stp"
+VALUE "<project>\designer\impl1\top_1_fp\top_1.pro,pro"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -244,7 +266,7 @@ ENDLIST
 LIST Other_Association
 ENDLIST
 LIST SimulationOptions
-UseAutomaticDoFile=true
+UseAutomaticDoFile=false
 IncludeWaveDo=false
 Type=max
 RunTime=1000ns
@@ -252,7 +274,7 @@ Resolution=1ps
 VsimOpt=
 EntityName=testur_topp
 TopInstanceName=<top>_0
-DoFileName=
+DoFileName=C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/simulation/run.do
 DoFileName2=wave.do
 DoFileParams=
 DisplayDUTWave=false
@@ -289,7 +311,7 @@ EnableSETMitigationOn=FALSE
 DisplayFanoutLimit=10
 AbortFlowOnPDCErrorsOn=TRUE
 AbortFlowOnSDCErrorsOn=TRUE
-InstantiateInSmartDesign=TRUE
+InstantiateInSmartDesign=FALSE
 FlashProInputFile=pdb
 SmartGenCompileReport=T
 ENDLIST
@@ -309,8 +331,8 @@ NAME="Synplify Pro ME"
 FUNCTION="Synthesis"
 TOOL="Synplify Pro ME"
 LOCATION="C:\Microsemi\Libero_SoC_v11.8\SynplifyPro\bin\synplify_pro.exe"
-PARAM="-licensetype synplifypro_actel -batch -log synplify.log"
-BATCH=1
+PARAM=""
+BATCH=0
 LICENSE=""
 IS32BIT="1"
 EndProfile
@@ -345,27 +367,29 @@ ENDLIST
 LIST ProjectState5.1
 LIST "Top::work"
 LIST Impl1
-LiberoState=Post_Synthesis
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
+ideSYNTHESIS(<project>\synthesis\Top.vm,syn_vm)=StateFailure
+ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateFailure
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
 UseFhbAutoInst=FALSE
 ENDLIST
 Used_File_List
-ENDUsed_File_List
-ENDLIST
-LIST Impl2
-LiberoState=Post_Synthesis
-ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\top.edn,syn_edn)=StateSuccess
-LIST FlowOptions
-UsePhySynth=FALSE
-UseSynth=TRUE
-UseFhbAutoInst=FALSE
-ENDLIST
-Used_File_List
+VALUE "<project>\synthesis\Top.vm,syn_vm"
+VALUE "<project>\synthesis\top.edn,syn_edn"
+VALUE "<project>\synthesis\Top_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\Top.v,syn_hdl"
+VALUE "<project>\phy_synthesis\Top_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\Top_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\Top_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\Top_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\Top_palace.v,palace_hdl"
+VALUE "<project>\designer\impl1\top.adb,adb"
+VALUE "<project>\designer\impl1\top.prb,prb"
+VALUE "<project>\designer\impl1\top.fdb,fdb"
+VALUE "<project>\designer\impl1\top.stp,stp"
+VALUE "<project>\designer\impl1\top_1_fp\top_1.pro,pro"
 ENDUsed_File_List
 ENDLIST
 ENDLIST
@@ -382,22 +406,13 @@ LIST UserCustomizedFileList
 ENDLIST
 LIST OpenedFileList
 ORIENTATION;HORIZONTAL
-Reports;Reports;0
-ReportsCurrentItem;Compile:Top_compile_log.rpt
 StartPage;StartPage;0
-HDL;hdl\Top.v;0
-HDL;hdl\spi_if.v;0
-HDL;constraint\top_sdc.sdc;0
-ACTIVEVIEW;Reports
+ACTIVEVIEW;StartPage
 ENDLIST
 LIST ModuleSubBlockList
 LIST "adc_fifo::work","smartgen\adc_fifo\adc_fifo.v","TRUE","FALSE"
 ENDLIST
 LIST "adc_if::work","hdl\adc_if.v","FALSE","FALSE"
-ENDLIST
-LIST "DESIGN_FIRMWARE::work","component\work\DESIGN_FIRMWARE\DESIGN_FIRMWARE.cxf","TRUE","FALSE"
-ENDLIST
-LIST "DESIGN_IO::work","component\work\DESIGN_IO\DESIGN_IO.cxf","TRUE","FALSE"
 ENDLIST
 LIST "ledctrl::work","hdl\ledctrl.v","FALSE","FALSE"
 ENDLIST
@@ -416,6 +431,8 @@ SUBBLOCK "mainPll::work","smartgen\mainPll\mainPll.v","TRUE","FALSE"
 SUBBLOCK "master_if::work","hdl\master_if.v","FALSE","FALSE"
 SUBBLOCK "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
 ENDLIST
+LIST "VCO_ctrl::work","hdl\VCO_ctrl.v","FALSE","FALSE"
+ENDLIST
 LIST "testur_topp::work","stimulus\testur_topp.v","FALSE","TRUE"
 SUBBLOCK "Top::work","hdl\Top.v","FALSE","FALSE"
 ENDLIST
@@ -430,7 +447,7 @@ ENDLIST
 LIST FPTabList
 ENDLIST
 LIST TimingTabList
-VALUE "constraint\top_sdc.sdc"
+VALUE "constraint\Top.sdc"
 ENDLIST
 LIST FDCTabList
 ENDLIST

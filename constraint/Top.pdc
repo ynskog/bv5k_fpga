@@ -60,3 +60,9 @@ set_io led1_blu -pinname B10 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
 set_io led1_grn -pinname B9 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
 set_io led2_blu -pinname A5 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
 set_io led2_grn -pinname A4 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io drl_i -pinname L3 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io drl_q -pinname L8 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io sdoa_i -pinname K3 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io sdoa_q -pinname L7 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io busy_i -pinname J1 -iostd LVCMOS25_50 -RES_PULL None -fixed yes
+set_io busy_q -pinname M4 -iostd LVCMOS25_50 -RES_PULL None -fixed yes

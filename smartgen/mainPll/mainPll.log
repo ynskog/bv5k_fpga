@@ -1,6 +1,6 @@
  ** Message System Log
  ** Database: 
- ** Date:   Sat Sep 15 14:49:34 2018
+ ** Date:   Sun Oct 28 12:51:06 2018
 
 
 ****************
@@ -18,7 +18,7 @@ CLKA Source                     : External I/O
 Feedback Delay Value Index      : 1
 Feedback Mux Select             : 1
 XDLY Mux Select                 : No
-Primary Freq(Mhz)               : 64.000000
+Primary Freq(Mhz)               : 36.000000
 Primary PhaseShift              : 0
 Primary Delay Value Index       : 1
 Primary Mux Select              : 4
@@ -39,9 +39,9 @@ Secondary2 Mux Select           : 0
 Lock Control                    : Yes
 
 Configuration Bits:
-FINDIV[6:0]     0000111
-FBDIV[6:0]      0101000
-OADIV[4:0]      00001
+FINDIV[6:0]     0000100
+FBDIV[6:0]      0100011
+OADIV[4:0]      00100
 OBDIV[4:0]      00000
 OCDIV[4:0]      00000
 OAMUX[2:0]      100
@@ -55,9 +55,9 @@ DLYGLB[4:0]     00000
 DLYGLC[4:0]     00000
 DLYYB[4:0]      00000
 DLYYC[4:0]      00000
-VCOSEL[2:0]     101
+VCOSEL[2:0]     111
 
-Primary Clock Frequency 64.063
+Primary Clock Frequency 36.000
 Primary Clock Phase Shift 0.000
 Primary Clock Output Delay from CLKA 1.695
 
@@ -82,5 +82,5 @@ Netlist Resource Report
 
 Wrote Verilog netlist to C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen\mainPll\mainPll.v.
 
- ** Log Ended:   Sat Sep 15 14:49:34 2018
+ ** Log Ended:   Sun Oct 28 12:51:07 2018
 

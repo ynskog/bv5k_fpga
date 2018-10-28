@@ -14,7 +14,7 @@ set sdc_version 1.7
 
 ########  Clock Constraints  ########
 
-create_clock  -name { u_mainPll/Core:GLA } -period 15.610 -waveform { 0.000 7.805  }  { u_mainPll/Core:GLA  } 
+create_clock  -name { u_mainPll/Core:GLA } -period 27.7 { u_mainPll/Core:GLA  } 
 #
 # *** Note *** This constraint was converted from a create_generated_clock constraint
 #              which used both -divide_by and -multiply_by options:

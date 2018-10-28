@@ -126,8 +126,8 @@ module Top (
             adc_Q_enable <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
-            adc_I_ctrlword <= 10'b1010101010;
-            adc_Q_ctrlword <= 10'b1010101010;
+            adc_I_ctrlword <= 10'b0000100100;
+            adc_Q_ctrlword <= 10'b0000100100;
         end else begin
             justStarted <= 1'b0;
             adc_I_ldctrl <= 1'b0;
@@ -147,10 +147,15 @@ module Top (
                 //justStarted <= 1'b0;
                 adc_I_ldctrl <= 1'b1;
                 adc_Q_ldctrl <= 1'b1;
+            end
+
+            //if(justStarted == 1'b1) begin
+            if(eventCnt == 500000100) begin
+                //justStarted <= 1'b0;
                 adc_I_enable <= 1'b1;
                 adc_Q_enable <= 1'b1;
             end
-            
+
             if(eventCnt == 0) begin
                 adc_I_enable <= 1'b0;
                 adc_Q_enable <= 1'b0;
@@ -169,7 +174,7 @@ module Top (
         .sckb(sckb_i),
         .sdi(sdi_i),
         .drl(drl_i),
-        .df(16'd16),
+        .df(16'd4),
         .sync(sync_i),
         .busy(busy_i),
         .sdoa(sdoa_i),
@@ -191,7 +196,7 @@ module Top (
         .sckb(sckb_q),
         .sdi(sdi_q),
         .drl(drl_q),
-        .df(16'd16),
+        .df(16'd4),
         .sync(sync_q),
         .busy(busy_q),
         .sdoa(sdoa_q),
