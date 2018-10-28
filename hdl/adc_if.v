@@ -1,5 +1,5 @@
 module adc_if
-    #(parameter MCLK_DIV=48)
+    #(parameter MCLK_DIV=36)
     (input clk, arstn,
     
     output reg mclk, scka,sckb, sdi, sync,

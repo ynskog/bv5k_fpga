@@ -37,7 +37,7 @@ module Top (
     reg [15:0] agc_data;
 
     wire [14:0] fifo_rdcnt;
-    wire [11:0] fifo_wrcnt;
+    wire [10:0] fifo_wrcnt;
     wire fifo_rd;
 
     wire com_mosi, com_miso, com_sck, com_rdy;
@@ -51,6 +51,8 @@ module Top (
     wire [31:0] adc_I_dataa,adc_Q_dataa; 
     wire [31:0] adc_I_datab; 
     reg [31:0] eventCnt;
+
+    wire agc_din_int, agc_sclk_int,agc_csn_int,agc_clrn_int;
 
     wire [7:0] fifo_rdata;
 
@@ -105,15 +107,18 @@ module Top (
     .arstn(arstn),
     .wdat(agc_data),
     .load(agc_load),
-    .sck(agc_sclk),
-    .mosi(agc_din),
-    .csn(agc_csn));
-
+    .sck(agc_sclk_int),
+    .mosi(agc_din_int),
+    .csn(agc_csn_int));
     
+    assign agc_sclk = agc_sclk_int;
+    assign agc_din = agc_din_int;
+    assign agc_csn = agc_csn_int;
+
     // temporary master sequencer used before we get something proper
     always @(posedge clk, negedge arstn) begin
         if(arstn == 1'b0) begin
-            agc_data <= 16'h5555;
+            agc_data <= 16'h2AAA; // 1V RMS
             agc_load <= 1'b0;
             justStarted <= 1'b1;
             adc_I_enable <= 1'b0;
@@ -125,20 +130,34 @@ module Top (
             adc_Q_ctrlword <= 10'b1010101010;
         end else begin
             justStarted <= 1'b0;
-            eventCnt <= eventCnt + 1;
+            adc_I_ldctrl <= 1'b0;
+            adc_Q_ldctrl <= 1'b0;
+            
+            if(eventCnt < 1000000000) 
+                eventCnt <= eventCnt + 1;
+            else
+                eventCnt <= 32'd0;
+            
             agc_load <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
-            if(justStarted == 1'b1) begin
-                agc_load <= 1'b1;
-                justStarted <= 1'b0;
+            
+            //if(justStarted == 1'b1) begin
+            if(eventCnt == 500000000) begin
+                //justStarted <= 1'b0;
                 adc_I_ldctrl <= 1'b1;
                 adc_Q_ldctrl <= 1'b1;
-            end
-            if(eventCnt == 256) begin
                 adc_I_enable <= 1'b1;
                 adc_Q_enable <= 1'b1;
             end
+            
+            if(eventCnt == 0) begin
+                adc_I_enable <= 1'b0;
+                adc_Q_enable <= 1'b0;
+            end
+
+            if(eventCnt == 48000000) agc_load <= 1'b1;
+
         end
     end
 
@@ -209,18 +228,20 @@ module Top (
      .miso(com_miso), 
      .rdy(com_rdy));
 
-    assign led1_blu = 1'b1;
-    assign led2_blu = 1'b1;
-    assign led1_grn = 1'b1;
-    assign led2_grn = 1'b1;
+
+    assign led1_blu = agc_csn_int;
+    assign led2_blu = agc_din_int;
+    assign led1_grn = eventCnt[0];
+    assign led2_grn = agc_sclk_int;
 
 
-    //ledctrl u_ledctrl 
-    // (.clk(clk),
-    //  .arstn(arstn),
-    //  .green({led1_blu,led2_blu}),
-    //  .blue({led1_grn,led2_grn}));
-
+    /*
+    ledctrl u_ledctrl 
+     (.clk(clk),
+      .arstn(arstn),
+      .green({led1_blu,led2_blu}),
+      .blue({led1_grn,led2_grn}));
+    */
     //assign flir_mclk = ^fifoTempData; // To avoid optimizing away the FIFO
 
 endmodule

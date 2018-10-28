@@ -31,6 +31,12 @@ always @(SYSCLK)
     #(SYSCLK_PERIOD / 2.0) SYSCLK <= !SYSCLK;
 
 
+// Interface to AGC DAC
+wire agc_din, agc_sclk, agc_csn, agc_clrn;
+
+// Interface to VCO DAC
+wire vco_din, vco_sclk, vco_csn, vco_clrn;
+
 reg drl_i, drl_q;
 wire mclk_i, mclk_q;
 wire scka_i, scka_q;
@@ -149,18 +155,18 @@ Top Top_0 (
     .sdi_q( ),
     .mclk_q(mclk_q ),
     .sync_i( ),
-    .scka_i( scka_i),
+    .scka_i(scka_i),
     .sckb_i( ),
     .sdi_i( ),
     .mclk_i(mclk_i),
-    .vco_din( ),
-    .vco_sclk( ),
-    .vco_csn( ),
-    .vco_clrn( ),
-    .agc_din( ),
-    .agc_sclk( ),
-    .agc_csn( ),
-    .agc_clrn( ),
+    .vco_din(vco_din ),
+    .vco_sclk(vco_sclk ),
+    .vco_csn(vco_csn ),
+    .vco_clrn(vco_clrn ),
+    .agc_din(agc_din ),
+    .agc_sclk(agc_sclk ),
+    .agc_csn(agc_csn ),
+    .agc_clrn(agc_clrn ),
     .flir_mclk( ),
     .flir_pwrdn( ),
     .flir_rstn( ),

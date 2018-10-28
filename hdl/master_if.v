@@ -2,7 +2,7 @@
 module master_if
     #(parameter BLOCKSIZE=1024)
     (input clk, arstn,
-     input [11:0] wrcnt,
+     input [10:0] wrcnt,
      input mosi,
      output reg fifoRd,
      input [7:0] rdata,
