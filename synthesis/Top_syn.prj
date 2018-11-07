@@ -1,15 +1,15 @@
 #--  Synopsys, Inc.
 #--  Version L-2016.09M-2
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\Top_syn.prj
-#--  Written on Sun Oct 28 14:53:40 2018
+#--  Written on Wed Nov 07 19:27:42 2018
 
 
 #project files
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/adc_fifo/adc_fifo.v"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
 add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.v"
 add_file -ident_constraint "synthesis_identify/identify.idc"
 
@@ -41,7 +41,7 @@ set_option -top_module "Top"
 set_option -distributed_compile 0
 
 # mapper_without_write_options
-set_option -frequency 36
+set_option -frequency 36.000000
 set_option -identify_debug_mode 1
 set_option -srs_instrumentation 1
 
@@ -56,7 +56,7 @@ set_option -rw_check_on_ram 0
 set_option -run_prop_extract 1
 set_option -maxfan 24
 set_option -disable_io_insertion 0
-set_option -retiming 0
+set_option -retiming 1
 set_option -report_path 4000
 set_option -opcond COMWC
 set_option -update_models_cp 0
@@ -125,7 +125,7 @@ set_option -rw_check_on_ram 0
 set_option -run_prop_extract 1
 set_option -maxfan 24
 set_option -disable_io_insertion 0
-set_option -retiming 0
+set_option -retiming 1
 set_option -report_path 4000
 set_option -opcond COMWC
 set_option -update_models_cp 0
@@ -146,6 +146,7 @@ set_option -resource_sharing 1
 
 # Compiler Options
 set_option -auto_infer_blackbox 0
+set_option -ident_constraint  ""
 
 #automatic place and route (vendor) options
 set_option -write_apr_constraint 1

@@ -43,13 +43,13 @@ ENDLIST
 LIST FileManager
 VALUE "<project>\constraint\Top.pdc,pdc"
 STATE="utd"
-TIME="1540717536"
+TIME="1540733157"
 SIZE="4618"
 ENDFILE
 VALUE "<project>\constraint\Top.sdc,sdc"
 STATE="utd"
-TIME="1539508808"
-SIZE="1842"
+TIME="1540727453"
+SIZE="1812"
 ENDFILE
 VALUE "<project>\designer\impl1\top.adb,adb"
 STATE="ood"
@@ -63,8 +63,8 @@ SIZE="1242"
 ENDFILE
 VALUE "<project>\designer\impl1\Top_compile_log.rpt,log"
 STATE="utd"
-TIME="1540717592"
-SIZE="902"
+TIME="1540734836"
+SIZE="31646"
 ENDFILE
 VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -78,28 +78,73 @@ SIZE="2403"
 ENDFILE
 VALUE "<project>\designer\impl1\top_identify.adb,adb"
 STATE="ood"
-TIME="1540717125"
+TIME="1540728308"
 SIZE="3762688"
 ENDFILE
 VALUE "<project>\designer\impl1\top_identify.ide_des,ide_des"
 STATE="utd"
-TIME="1540717129"
-SIZE="1291"
+TIME="1540728309"
+SIZE="1294"
 ENDFILE
 VALUE "<project>\designer\impl1\top_identify_fp\projectData\top_identify.pdb,pdb"
 STATE="utd"
-TIME="1540716284"
-SIZE="188462"
+TIME="1540728387"
+SIZE="197087"
 ENDFILE
 VALUE "<project>\designer\impl1\top_identify_fp\top_identify.pro,pro"
 STATE="utd"
-TIME="1540716284"
+TIME="1540728387"
 SIZE="2457"
+ENDFILE
+VALUE "<project>\designer\impl1\Top_placeroute_log.rpt,log"
+STATE="utd"
+TIME="1540734865"
+SIZE="2920"
+ENDFILE
+VALUE "<project>\designer\impl1\Top_prgdata_log.rpt,log"
+STATE="utd"
+TIME="1540734898"
+SIZE="773"
+ENDFILE
+VALUE "<project>\designer\impl1\top_synthesis.adb,adb"
+STATE="utd"
+TIME="1540734897"
+SIZE="2740736"
+ENDFILE
+VALUE "<project>\designer\impl1\top_synthesis.ide_des,ide_des"
+STATE="utd"
+TIME="1540734898"
+SIZE="1277"
+ENDFILE
+VALUE "<project>\designer\impl1\top_synthesis.pdb,pdb"
+STATE="utd"
+TIME="1540734897"
+SIZE="185824"
+ENDFILE
+VALUE "<project>\designer\impl1\top_synthesis_fp\projectData\top_synthesis.pdb,pdb"
+STATE="utd"
+TIME="1540734973"
+SIZE="185824"
+ENDFILE
+VALUE "<project>\designer\impl1\top_synthesis_fp\top_synthesis.pro,pro"
+STATE="utd"
+TIME="1540734973"
+SIZE="2463"
+ENDFILE
+VALUE "<project>\designer\impl1\Top_timingconstraints_log.rpt,log"
+STATE="utd"
+TIME="1540719934"
+SIZE="274"
+ENDFILE
+VALUE "<project>\designer\impl1\Top_verifytiming_log.rpt,log"
+STATE="utd"
+TIME="1540734872"
+SIZE="1174"
 ENDFILE
 VALUE "<project>\hdl\adc_if.v,hdl"
 STATE="utd"
-TIME="1540716907"
-SIZE="5497"
+TIME="1540734798"
+SIZE="5462"
 ENDFILE
 VALUE "<project>\hdl\ledctrl.v,hdl"
 STATE="utd"
@@ -123,8 +168,8 @@ SIZE="113"
 ENDFILE
 VALUE "<project>\hdl\Top.v,hdl"
 STATE="utd"
-TIME="1540716937"
-SIZE="6573"
+TIME="1540733659"
+SIZE="6708"
 ENDFILE
 VALUE "<project>\hdl\VCO_ctrl.sv,hdl"
 STATE="utd"
@@ -179,26 +224,26 @@ IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.cxf,actgen_cxf"
 STATE="utd"
-TIME="1539884972"
+TIME="1540727468"
 SIZE="1476"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.gen,gen"
 STATE="utd"
-TIME="1539884969"
+TIME="1540727465"
 SIZE="559"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.log,log"
 STATE="utd"
-TIME="1539884970"
+TIME="1540727467"
 SIZE="2755"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
 ENDFILE
 VALUE "<project>\smartgen\mainPll\mainPll.v,hdl"
 STATE="utd"
-TIME="1539884970"
+TIME="1540727467"
 SIZE="2798"
 PARENT="<project>\smartgen\mainPll\mainPll.cxf"
 IS_READONLY="TRUE"
@@ -208,15 +253,30 @@ STATE="utd"
 TIME="1539513715"
 SIZE="3857"
 ENDFILE
+VALUE "<project>\synthesis\synthesis\top.edn,syn_edn"
+STATE="utd"
+TIME="1540734819"
+SIZE="1458768"
+ENDFILE
 VALUE "<project>\synthesis\synthesis\top.so,so"
 STATE="utd"
-TIME="1540717680"
-SIZE="292"
+TIME="1540734819"
+SIZE="238"
+ENDFILE
+VALUE "<project>\synthesis\synthesis\top_sdc.sdc,syn_sdc"
+STATE="utd"
+TIME="1540734819"
+SIZE="564"
+ENDFILE
+VALUE "<project>\synthesis\synthesis_identify\top.so,so"
+STATE="utd"
+TIME="1540730441"
+SIZE="247"
 ENDFILE
 VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
-TIME="1540717684"
-SIZE="3462"
+TIME="1540734820"
+SIZE="3822"
 ENDFILE
 ENDLIST
 LIST UsedFile
@@ -230,9 +290,10 @@ VALUE "<project>\stimulus\testur_topp.v,tb_hdl"
 ENDLIST
 LIST ProjectState5.1
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\Top.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\top_synthesis.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -240,21 +301,25 @@ UseFhbAutoInst=FALSE
 ENDLIST
 Used_File_List
 VALUE "<project>\synthesis\Top.vm,syn_vm"
-VALUE "<project>\synthesis\top.edn,syn_edn"
-VALUE "<project>\synthesis\Top_sdc.sdc,syn_sdc"
-VALUE "<project>\synthesis\Top.v,syn_hdl"
-VALUE "<project>\phy_synthesis\Top_palace.edn,palace_edn"
-VALUE "<project>\phy_synthesis\Top_palace.gcf,palace_gcf"
-VALUE "<project>\phy_synthesis\Top_palace.pdc,palace_pdc"
-VALUE "<project>\phy_synthesis\Top_palace.sdc,palace_sdc"
-VALUE "<project>\phy_synthesis\Top_palace.v,palace_hdl"
-VALUE "<project>\designer\impl1\top.adb,adb"
-VALUE "<project>\designer\impl1\top.prb,prb"
-VALUE "<project>\designer\impl1\top.fdb,fdb"
-VALUE "<project>\designer\impl1\top.stp,stp"
-VALUE "<project>\designer\impl1\top_1_fp\top_1.pro,pro"
+VALUE "<project>\synthesis\synthesis\top.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\top_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis\top.v,syn_hdl"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.v,palace_hdl"
+VALUE "<project>\designer\impl1\top_synthesis.adb,adb"
+VALUE "<project>\designer\impl1\top_synthesis.prb,prb"
+VALUE "<project>\designer\impl1\top_synthesis.fdb,fdb"
+VALUE "<project>\designer\impl1\top_synthesis.stp,stp"
+VALUE "<project>\designer\impl1\top_synthesis_1_fp\top_synthesis_1.pro,pro"
 ENDUsed_File_List
 ENDLIST
+ENDLIST
+LIST PinReports
+VALUE "<project>\designer\impl1\Top_report_pin_byname.txt,log"
+VALUE "<project>\designer\impl1\Top_report_pin_bynumber.txt,log"
 ENDLIST
 ENDLIST
 ENDLIST
@@ -367,9 +432,10 @@ ENDLIST
 LIST ProjectState5.1
 LIST "Top::work"
 LIST Impl1
+LiberoState=Post_Layout
 ideSTIMULUS=StateSuccess
-ideSYNTHESIS(<project>\synthesis\Top.vm,syn_vm)=StateFailure
-ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateFailure
+ideSYNTHESIS(<project>\synthesis\synthesis\top.edn,syn_edn)=StateSuccess
+ideDESIGNER(<project>\designer\impl1\top_synthesis.adb,adb)=StateSuccess
 LIST FlowOptions
 UsePhySynth=FALSE
 UseSynth=TRUE
@@ -377,19 +443,19 @@ UseFhbAutoInst=FALSE
 ENDLIST
 Used_File_List
 VALUE "<project>\synthesis\Top.vm,syn_vm"
-VALUE "<project>\synthesis\top.edn,syn_edn"
-VALUE "<project>\synthesis\Top_sdc.sdc,syn_sdc"
-VALUE "<project>\synthesis\Top.v,syn_hdl"
-VALUE "<project>\phy_synthesis\Top_palace.edn,palace_edn"
-VALUE "<project>\phy_synthesis\Top_palace.gcf,palace_gcf"
-VALUE "<project>\phy_synthesis\Top_palace.pdc,palace_pdc"
-VALUE "<project>\phy_synthesis\Top_palace.sdc,palace_sdc"
-VALUE "<project>\phy_synthesis\Top_palace.v,palace_hdl"
-VALUE "<project>\designer\impl1\top.adb,adb"
-VALUE "<project>\designer\impl1\top.prb,prb"
-VALUE "<project>\designer\impl1\top.fdb,fdb"
-VALUE "<project>\designer\impl1\top.stp,stp"
-VALUE "<project>\designer\impl1\top_1_fp\top_1.pro,pro"
+VALUE "<project>\synthesis\synthesis\top.edn,syn_edn"
+VALUE "<project>\synthesis\synthesis\top_sdc.sdc,syn_sdc"
+VALUE "<project>\synthesis\synthesis\top.v,syn_hdl"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.edn,palace_edn"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.gcf,palace_gcf"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.pdc,palace_pdc"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.sdc,palace_sdc"
+VALUE "<project>\phy_synthesis\top_synthesis_palace.v,palace_hdl"
+VALUE "<project>\designer\impl1\top_synthesis.adb,adb"
+VALUE "<project>\designer\impl1\top_synthesis.prb,prb"
+VALUE "<project>\designer\impl1\top_synthesis.fdb,fdb"
+VALUE "<project>\designer\impl1\top_synthesis.stp,stp"
+VALUE "<project>\designer\impl1\top_synthesis_1_fp\top_synthesis_1.pro,pro"
 ENDUsed_File_List
 ENDLIST
 ENDLIST

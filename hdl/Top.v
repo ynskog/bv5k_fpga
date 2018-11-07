@@ -34,7 +34,7 @@ module Top (
     // AGC interface
     reg agc_load;
     reg justStarted;
-    reg [15:0] agc_data;
+    reg [11:0] agc_data;
 
     wire [14:0] fifo_rdcnt;
     wire [10:0] fifo_wrcnt;
@@ -102,7 +102,7 @@ module Top (
 
     assign agc_clrn = arstn;
 
- spiMasterWrite u_AgcCtrl (
+ spiMasterWrite #(.DATA_WIDTH(12))u_AgcCtrl (
     .clk(clk), 
     .arstn(arstn),
     .wdat(agc_data),
@@ -118,7 +118,7 @@ module Top (
     // temporary master sequencer used before we get something proper
     always @(posedge clk, negedge arstn) begin
         if(arstn == 1'b0) begin
-            agc_data <= 16'h2AAA; // 1V RMS
+            agc_data <= 12'h2AAA; // 1V RMS
             agc_load <= 1'b0;
             justStarted <= 1'b1;
             adc_I_enable <= 1'b0;
