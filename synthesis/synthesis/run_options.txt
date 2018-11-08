@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version L-2016.09M-2
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\synthesis\run_options.txt
-#--  Written on Wed Nov 07 19:28:04 2018
+#--  Written on Wed Nov 07 19:33:05 2018
 
 
 #project files

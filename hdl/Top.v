@@ -136,13 +136,12 @@ module Top (
             if(eventCnt < 1000000000) 
                 eventCnt <= eventCnt + 1;
             else
-                eventCnt <= 32'd0;
+                eventCnt <= 32'd1;
             
             agc_load <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
             
-            //if(justStarted == 1'b1) begin
             if(eventCnt == 500000000) begin
                 //justStarted <= 1'b0;
                 adc_I_ldctrl <= 1'b1;
@@ -234,20 +233,11 @@ module Top (
      .rdy(com_rdy));
 
 
-    assign led1_blu = agc_csn_int;
-    assign led2_blu = agc_din_int;
-    assign led1_grn = eventCnt[0];
-    assign led2_grn = agc_sclk_int;
-
-
-    /*
     ledctrl u_ledctrl 
      (.clk(clk),
       .arstn(arstn),
       .green({led1_blu,led2_blu}),
       .blue({led1_grn,led2_grn}));
-    */
-    //assign flir_mclk = ^fifoTempData; // To avoid optimizing away the FIFO
 
 endmodule
 

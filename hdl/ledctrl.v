@@ -15,7 +15,7 @@ module ledctrl
     end else begin
        tick <= 1'b0;
        cyclecnt <= cyclecnt + 1;
-       if (cyclecnt == 6400000) begin
+       if (cyclecnt == 250) begin
            tick <= 1'b1;
            cyclecnt <= 24'd0;
        end 
@@ -27,8 +27,8 @@ module ledctrl
        sagtannur <= 8'd0;
        lysnad <= 8'd0;
     end else begin
-       sagtannur <= sagtannur + 1;
-       if (sagtannur == 8'd0) lysnad <= lysnad + 1;
+       if(tick) sagtannur <= sagtannur + 1;
+       if (sagtannur == 8'd0 && tick) lysnad <= lysnad + 1;
     end
   end
 
