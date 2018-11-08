@@ -118,7 +118,7 @@ module Top (
     // temporary master sequencer used before we get something proper
     always @(posedge clk, negedge arstn) begin
         if(arstn == 1'b0) begin
-            agc_data <= 12'h2AAA; // 1V RMS
+            agc_data <= 12'h555; // 1V RMS
             agc_load <= 1'b0;
             justStarted <= 1'b1;
             adc_I_enable <= 1'b0;
