@@ -102,7 +102,7 @@ module Top (
 
     assign agc_clrn = arstn;
 
- spiMasterWrite #(.DATA_WIDTH(12))u_AgcCtrl (
+ spiMasterWrite #(.DATA_WIDTH(12)) u_AgcCtrl (
     .clk(clk), 
     .arstn(arstn),
     .wdat(agc_data),
@@ -238,6 +238,24 @@ module Top (
       .arstn(arstn),
       .green({led1_blu,led2_blu}),
       .blue({led1_grn,led2_grn}));
+
+    VCO_ctrl 
+    #(.TICK_DELAY(16),
+      .DATA_WIDTH(12),
+      .P1_MAX(1024), 
+      .P2_MAX(2048), 
+      .P1_STEP_UP(2), 
+      .P1_STEP_DOWN(4), 
+      .P2_STEP_UP(1),
+      .P2_STEP_DOWN(1)) 
+    u_VCO_ctrl
+    (.clk(clk),
+     .arstn(arstn),
+     .enable('1),
+     .mosi(vco_din),
+     .sck(vco_sclk), 
+     .csn(vco_csn),
+     .clrn(vco_clrn));
 
 endmodule
 
