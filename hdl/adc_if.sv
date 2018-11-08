@@ -2,34 +2,35 @@ module adc_if
     #(parameter MCLK_DIV=36)
     (input clk, arstn,
     
-    output reg mclk, scka,sckb, sdi, sync,
-    input drl,busy,sdoa,sdob,
+    output logic mclk, scka,sckb, sdi, sync,
+    input logic drl,busy,sdoa,sdob,
 
-    input [15:0] df, // downsampling factor
+    input logic [15:0] df, // downsampling factor
 
-    input enable,
-    output reg mbusy,
+    input logic enable,
+    output logic mbusy,
 
-    input [9:0] ctrlword,
-    input ldctrl, // load control word
+    input logic [9:0] ctrlword,
+    input logic ldctrl, // load control word
 
-    output reg [31:0] douta,
-    output reg [31:0] doutb,
-    output reg valida, validb);
+    output logic [31:0] douta,
+    output logic [31:0] doutb,
+    output logic valida, validb);
 
-    reg [4:0] bitcnt_rg;
-    reg [11:0] ctrlword_rg;
-    reg [4:0] state_rg;
-    reg [5:0] sampleCnt;
-    reg [15:0] readoutCnt;
-    reg sampleTrigger;
-    reg cfgTrigger;
-    reg readoutTrigger;
+    logic [4:0] bitcnt_rg;
+    logic [11:0] ctrlword_rg;
+    logic [5:0] sampleCnt;
+    logic [15:0] readoutCnt;
+    logic sampleTrigger;
+    logic cfgTrigger;
+    logic readoutTrigger;
 
-    parameter idle_s=0, sample_s=1, convert_s=2, program_s=3, busy_s=4, 
-              rdlow_s=5, rdhigh_s=6, prglow_s=7, prghigh_s=8, done_s=9, wait_prog_s = 10;
+    typedef enum {idle_s, sample_s, convert_s, program_s, busy_s, 
+          rdlow_s, rdhigh_s, prglow_s, prghigh_s, done_s, wait_prog_s } states_t;
 
-    always @(posedge clk,negedge arstn) begin
+    states_t state_rg;
+
+    always_ff @(posedge clk,negedge arstn) begin
         if(arstn == 1'b0) begin
             mclk <= 1'b0;
         end else begin
@@ -40,7 +41,7 @@ module adc_if
         end
     end
 
-    always @(posedge clk,negedge arstn) begin
+    always_ff @(posedge clk,negedge arstn) begin
         if(arstn == 1'b0) begin
             sampleCnt     <= 6'd0;
             sampleTrigger <= 1'b0;
@@ -55,7 +56,7 @@ module adc_if
         end
     end
 
-    always @(posedge clk,negedge arstn) begin
+    always_ff @(posedge clk,negedge arstn) begin
         if(arstn == 1'b0) begin
             readoutCnt     <= 16'd0;
             readoutTrigger <= 1'b0;
@@ -72,7 +73,7 @@ module adc_if
         end
     end
 
-    always @(posedge clk,negedge arstn) begin
+    always_ff @(posedge clk,negedge arstn) begin
         if(arstn == 1'b0) begin
             bitcnt_rg   <= 6'b0;
             state_rg    <= idle_s;
