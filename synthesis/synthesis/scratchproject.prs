@@ -3,12 +3,14 @@
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\synthesis\scratchproject.prs
 
 #project files
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/VCO_ctrl.sv"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/adc_fifo/adc_fifo.v"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.v"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledctrl.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.v"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
 add_file -ident_constraint "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/synthesis/synthesis_identify/identify.idc"
 
 

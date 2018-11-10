@@ -63,8 +63,8 @@ SIZE="1242"
 ENDFILE
 VALUE "<project>\designer\impl1\Top_compile_log.rpt,log"
 STATE="utd"
-TIME="1540734836"
-SIZE="31646"
+TIME="1541701844"
+SIZE="31142"
 ENDFILE
 VALUE "<project>\designer\impl1\top_fp\projectData\top.pdb,pdb"
 STATE="utd"
@@ -98,28 +98,18 @@ SIZE="2457"
 ENDFILE
 VALUE "<project>\designer\impl1\Top_placeroute_log.rpt,log"
 STATE="utd"
-TIME="1540734865"
-SIZE="2920"
-ENDFILE
-VALUE "<project>\designer\impl1\Top_prgdata_log.rpt,log"
-STATE="utd"
-TIME="1540734898"
-SIZE="773"
+TIME="1541701878"
+SIZE="2916"
 ENDFILE
 VALUE "<project>\designer\impl1\top_synthesis.adb,adb"
 STATE="utd"
-TIME="1540734897"
-SIZE="2740736"
+TIME="1541701877"
+SIZE="2740224"
 ENDFILE
 VALUE "<project>\designer\impl1\top_synthesis.ide_des,ide_des"
 STATE="utd"
-TIME="1540734898"
-SIZE="1277"
-ENDFILE
-VALUE "<project>\designer\impl1\top_synthesis.pdb,pdb"
-STATE="utd"
-TIME="1540734897"
-SIZE="185824"
+TIME="1541701877"
+SIZE="1278"
 ENDFILE
 VALUE "<project>\designer\impl1\top_synthesis_fp\projectData\top_synthesis.pdb,pdb"
 STATE="utd"
@@ -136,20 +126,20 @@ STATE="utd"
 TIME="1540719934"
 SIZE="274"
 ENDFILE
-VALUE "<project>\designer\impl1\Top_verifytiming_log.rpt,log"
+VALUE "<project>\hdl\adc_if.sv,hdl"
 STATE="utd"
-TIME="1540734872"
-SIZE="1174"
+TIME="1541698547"
+SIZE="5515"
 ENDFILE
-VALUE "<project>\hdl\adc_if.v,hdl"
+VALUE "<project>\hdl\AGC_ctrl.v,hdl"
 STATE="utd"
-TIME="1540734798"
-SIZE="5462"
+TIME="1536491201"
+SIZE="734"
 ENDFILE
 VALUE "<project>\hdl\ledctrl.v,hdl"
 STATE="utd"
-TIME="1539797558"
-SIZE="940"
+TIME="1541697808"
+SIZE="953"
 ENDFILE
 VALUE "<project>\hdl\master_if.v,hdl"
 STATE="utd"
@@ -158,7 +148,7 @@ SIZE="1548"
 ENDFILE
 VALUE "<project>\hdl\spiMasterWrite.sv,hdl"
 STATE="utd"
-TIME="1536495563"
+TIME="1541614248"
 SIZE="1969"
 ENDFILE
 VALUE "<project>\hdl\spi_if.v,hdl"
@@ -168,23 +158,23 @@ SIZE="113"
 ENDFILE
 VALUE "<project>\hdl\Top.v,hdl"
 STATE="utd"
-TIME="1540733659"
-SIZE="6708"
+TIME="1541701798"
+SIZE="6811"
 ENDFILE
 VALUE "<project>\hdl\VCO_ctrl.sv,hdl"
 STATE="utd"
-TIME="1540146260"
-SIZE="1027"
+TIME="1541701647"
+SIZE="2903"
 ENDFILE
-VALUE "<project>\hdl\VCO_ctrl.v,hdl"
+VALUE "<project>\simulation\presynth_simulation.log,log"
 STATE="utd"
-TIME="1540132122"
-SIZE="733"
+TIME="1541701810"
+SIZE="10201"
 ENDFILE
 VALUE "<project>\simulation\run.do,do"
 STATE="utd"
-TIME="1539883696"
-SIZE="1103"
+TIME="1541700989"
+SIZE="1134"
 ENDFILE
 VALUE "<project>\simulation\run_custom.do,do"
 STATE="utd"
@@ -193,8 +183,8 @@ SIZE="1090"
 ENDFILE
 VALUE "<project>\simulation\wave.do,do"
 STATE="utd"
-TIME="1537106468"
-SIZE="7130"
+TIME="1541701583"
+SIZE="2717"
 ENDFILE
 VALUE "<project>\smartgen\adc_fifo\adc_fifo.cxf,actgen_cxf"
 STATE="utd"
@@ -255,17 +245,17 @@ SIZE="3857"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\top.edn,syn_edn"
 STATE="utd"
-TIME="1540734819"
-SIZE="1458768"
+TIME="1541701829"
+SIZE="1310683"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\top.so,so"
 STATE="utd"
-TIME="1540734819"
+TIME="1541701829"
 SIZE="238"
 ENDFILE
 VALUE "<project>\synthesis\synthesis\top_sdc.sdc,syn_sdc"
 STATE="utd"
-TIME="1540734819"
+TIME="1541701829"
 SIZE="564"
 ENDFILE
 VALUE "<project>\synthesis\synthesis_identify\top.so,so"
@@ -275,12 +265,11 @@ SIZE="247"
 ENDFILE
 VALUE "<project>\synthesis\top_syn.prj,prj"
 STATE="utd"
-TIME="1540734820"
-SIZE="3822"
+TIME="1541701829"
+SIZE="4072"
 ENDFILE
 ENDLIST
 LIST UsedFile
-VALUE "<project>\hdl\VCO_ctrl.v,VCO_ctrl"
 ENDLIST
 LIST NewModulesInfo
 LIST "Top::work"
@@ -478,7 +467,9 @@ ENDLIST
 LIST ModuleSubBlockList
 LIST "adc_fifo::work","smartgen\adc_fifo\adc_fifo.v","TRUE","FALSE"
 ENDLIST
-LIST "adc_if::work","hdl\adc_if.v","FALSE","FALSE"
+LIST "adc_if::work","hdl\adc_if.sv","FALSE","FALSE"
+ENDLIST
+LIST "AGC_ctrl::work","hdl\AGC_ctrl.v","FALSE","FALSE"
 ENDLIST
 LIST "ledctrl::work","hdl\ledctrl.v","FALSE","FALSE"
 ENDLIST
@@ -491,22 +482,22 @@ ENDLIST
 LIST "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
 ENDLIST
 LIST "Top::work","hdl\Top.v","FALSE","FALSE"
+SUBBLOCK "VCO_ctrl::work","hdl\VCO_ctrl.sv","FALSE","FALSE"
 SUBBLOCK "adc_fifo::work","smartgen\adc_fifo\adc_fifo.v","TRUE","FALSE"
-SUBBLOCK "adc_if::work","hdl\adc_if.v","FALSE","FALSE"
+SUBBLOCK "adc_if::work","hdl\adc_if.sv","FALSE","FALSE"
+SUBBLOCK "ledctrl::work","hdl\ledctrl.v","FALSE","FALSE"
 SUBBLOCK "mainPll::work","smartgen\mainPll\mainPll.v","TRUE","FALSE"
 SUBBLOCK "master_if::work","hdl\master_if.v","FALSE","FALSE"
 SUBBLOCK "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
 ENDLIST
-LIST "VCO_ctrl::work","hdl\VCO_ctrl.v","FALSE","FALSE"
+LIST "VCO_ctrl::work","hdl\VCO_ctrl.sv","FALSE","FALSE"
+SUBBLOCK "spiMasterWrite::work","hdl\spiMasterWrite.sv","FALSE","FALSE"
 ENDLIST
 LIST "testur_topp::work","stimulus\testur_topp.v","FALSE","TRUE"
 SUBBLOCK "Top::work","hdl\Top.v","FALSE","FALSE"
 ENDLIST
 ENDLIST
 LIST ActiveTestBenchList
-LIST "Top::work"
-ACTIVETESTBENCH "testur_topp::work","stimulus\testur_topp.v","FALSE"
-ENDLIST
 ENDLIST
 LIST IOTabList
 ENDLIST

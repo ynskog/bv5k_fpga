@@ -1,16 +1,18 @@
 #--  Synopsys, Inc.
 #--  Version L-2016.09M-2
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\synthesis\run_options.txt
-#--  Written on Wed Nov 07 19:33:05 2018
+#--  Written on Sat Nov 10 13:43:12 2018
 
 
 #project files
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/VCO_ctrl.sv"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/adc_fifo/adc_fifo.v"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.v"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledctrl.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.v"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
 add_file -ident_constraint "synthesis_identify/identify.idc"
 
 
