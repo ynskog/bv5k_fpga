@@ -5,7 +5,7 @@ module adc_if
     output logic mclk, scka,sckb, sdi, sync,
     input logic drl,busy,sdoa,sdob,
 
-    input logic [15:0] df, // downsampling factor
+    input logic [15:0] downsampling, // downsampling factor
 
     input logic enable,
     output logic mbusy,
@@ -47,7 +47,7 @@ module adc_if
             sampleTrigger <= 1'b0;
         end else begin
             sampleTrigger <= 1'b0;
-            if (sampleCnt  == MCLK_DIV) begin
+            if (sampleCnt  == MCLK_DIV-1) begin
                 sampleTrigger <= 1'b1;
                 sampleCnt     <= 6'd0;
             end else begin
@@ -63,7 +63,7 @@ module adc_if
         end else begin
             readoutTrigger <= 1'b0;
             if(sampleTrigger && enable) begin
-                if(readoutCnt == df-1) begin
+                if(readoutCnt == downsampling-1) begin
                     readoutTrigger <= 1'b1;
                     readoutCnt     <= 16'd0;
                 end else begin

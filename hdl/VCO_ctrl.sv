@@ -25,10 +25,10 @@ module VCO_ctrl
 
    states_t state_rg;
 
-   spiMasterWrite #(.DATA_WIDTH(DATA_WIDTH)) u_AgcCtrl (
+   spiMasterWrite #(.DATA_WIDTH(16)) u_AgcCtrl (
       .clk(clk), 
       .arstn(arstn),
-      .wdat(vco_volt),
+      .wdat({vco_volt,4'b0000}),
       .load(vco_load),
       .sck(sck),
       .mosi(mosi),

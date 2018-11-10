@@ -38,6 +38,7 @@ wire agc_din, agc_sclk, agc_csn, agc_clrn;
 wire vco_din, vco_sclk, vco_csn, vco_clrn;
 
 reg drl_i, drl_q;
+reg busy_i, busy_q;
 wire mclk_i, mclk_q;
 wire scka_i, scka_q;
 reg sdoa_i, sdoa_q;
@@ -50,10 +51,13 @@ wire [3:0] led;
 
 // very simple adc simulator
 initial forever begin
-    drl_i <= 1'b0;
+    drl_i  <= 1'b0;
+    busy_i <= 1'b0;
     @(negedge mclk_i); 
     drl_i <= 1'b1;
+    busy_i <= 1'b1;
     #600;
+    busy_i <= 1'b0;
     drl_i <= 1'b0;
 end
 
@@ -63,9 +67,12 @@ always @(posedge scka_q) sdoa_q <= $random;
 // very simple adc simulator
 initial forever begin
     drl_q <= 1'b0;
+    busy_q <= 1'b0;
     @(negedge mclk_q); 
+    busy_q <= 1'b1;
     drl_q <= 1'b1;
     #600;
+    busy_q <= 1'b0;    
     drl_q <= 1'b0;
 end
 
@@ -131,11 +138,11 @@ Top Top_0 (
     // Inputs
     .sdoa_q(sdoa_q),
     .sdob_q({1{1'b0}}),
-    .busy_q({1{1'b0}}),
+    .busy_q(busy_q),
     .drl_q(drl_q),
     .sdoa_i(sdoa_i),
     .sdob_i({1{1'b0}}),
-    .busy_i({1{1'b0}}),
+    .busy_i(busy_i),
     .drl_i(drl_i),
     .flir_miso({1{1'b0}}),
     .mosi_n(mosi_n),

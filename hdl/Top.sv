@@ -31,11 +31,14 @@ module Top (
     // crystal oscillator
     input xosc );
 
-    localparam LEDBLINK = 0;
+    localparam LEDBLINK   = 0;
+    localparam VCO_ENABLE = 0;
+    localparam DEBUG      = 0;
+
+    localparam DOWNSAMPLING_FACTOR = 64;
 
     // AGC interface
     logic agc_load;
-    logic justStarted;
     logic [11:0] agc_data;
 
     logic [14:0] fifo_rdcnt;
@@ -57,6 +60,8 @@ module Top (
     logic agc_din_int, agc_sclk_int,agc_csn_int,agc_clrn_int;
 
     logic [7:0] fifo_rdata;
+    logic fifo_full, fifo_empty;
+
 
     mainPll u_mainPll ( /* synthesis syn_noprune=1 */
            .POWERDOWN(1'b0),
@@ -120,9 +125,8 @@ module Top (
     // Temporary master sequencer used before we get something proper
     always @(posedge clk, negedge arstn) begin
         if(arstn == 1'b0) begin
-            agc_data <= 12'h555; // 1V RMS
+            agc_data <= 12'h333; // ~0.6V RMS
             agc_load <= 1'b0;
-            justStarted <= 1'b1;
             adc_I_enable <= 1'b0;
             eventCnt <= 32'd0;
             adc_Q_enable <= 1'b0;
@@ -131,28 +135,25 @@ module Top (
             adc_I_ctrlword <= 10'b0000100100;
             adc_Q_ctrlword <= 10'b0000100100;
         end else begin
-            justStarted <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
             
             if(eventCnt < 1000000000) 
                 eventCnt <= eventCnt + 1;
-            else
+            else if (DEBUG) // loop indefinitely if debug is enabled. Otherwise just do the setup once
                 eventCnt <= 32'd1;
+
             
             agc_load <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
             
-            if(eventCnt == 500000000) begin
-                //justStarted <= 1'b0;
+            if(eventCnt == 100) begin
                 adc_I_ldctrl <= 1'b1;
                 adc_Q_ldctrl <= 1'b1;
             end
 
-            //if(justStarted == 1'b1) begin
-            if(eventCnt == 500000100) begin
-                //justStarted <= 1'b0;
+            if(eventCnt == 1000) begin
                 adc_I_enable <= 1'b1;
                 adc_Q_enable <= 1'b1;
             end
@@ -175,7 +176,7 @@ module Top (
         .sckb(sckb_i),
         .sdi(sdi_i),
         .drl(drl_i),
-        .df(16'd4),
+        .downsampling(DOWNSAMPLING_FACTOR),
         .sync(sync_i),
         .busy(busy_i),
         .sdoa(sdoa_i),
@@ -197,7 +198,7 @@ module Top (
         .sckb(sckb_q),
         .sdi(sdi_q),
         .drl(drl_q),
-        .df(16'd4),
+        .downsampling(DOWNSAMPLING_FACTOR),
         .sync(sync_q),
         .busy(busy_q),
         .sdoa(sdoa_q),
@@ -220,8 +221,8 @@ module Top (
            .RDCNT(fifo_rdcnt),
            .WCLOCK(clk),
            .RCLOCK(com_sck),
-           .FULL(),
-           .EMPTY(),
+           .FULL(fifo_full),
+           .EMPTY(fifo_empty),
            .RESET(arstn));
 
    master_if #(.BLOCKSIZE(1024)) u_master_if
@@ -234,7 +235,6 @@ module Top (
      .miso(com_miso), 
      .rdy(com_rdy));
 
-
     generate 
         if(LEDBLINK)begin
             ledctrl u_ledctrl 
@@ -243,27 +243,36 @@ module Top (
               .green({led1_blu,led2_blu}),
               .blue({led1_grn,led2_grn}));
         end else begin
-            assign {led1_blu,led2_blu,led1_grn,led2_grn} = 4'b0000;
+            assign led1_grn = fifo_empty;
+            assign led1_blu = fifo_full;
+            assign {led2_blu,led2_grn} = 2'b00;
         end
     endgenerate
 
-    VCO_ctrl 
-    #(.TICK_DELAY(16),
-      .DATA_WIDTH(12),
-      .P1_MAX(1024), 
-      .P2_MAX(2048), 
-      .P1_STEP_UP(2), 
-      .P1_STEP_DOWN(4), 
-      .P2_STEP_UP(1),
-      .P2_STEP_DOWN(1)) 
-    u_VCO_ctrl
-    (.clk(clk),
-     .arstn(arstn),
-     .enable('1),
-     .mosi(vco_din),
-     .sck(vco_sclk), 
-     .csn(vco_csn),
-     .clrn(vco_clrn));
+    generate
+        if(VCO_ENABLE) begin
+            VCO_ctrl 
+            #(.TICK_DELAY(16),
+              .DATA_WIDTH(12),
+              .P1_MAX(1024), 
+              .P2_MAX(2048), 
+              .P1_STEP_UP(2), 
+              .P1_STEP_DOWN(4), 
+              .P2_STEP_UP(1),
+              .P2_STEP_DOWN(1)) 
+            u_VCO_ctrl
+            (.clk(clk),
+             .arstn(arstn),
+             .enable('1),
+             .mosi(vco_din),
+             .sck(vco_sclk), 
+             .csn(vco_csn),
+             .clrn(vco_clrn));
+        end else begin
+            assign {vco_sclk,vco_csn,vco_clrn,vco_din} = 4'b0000;
+        end
+    endgenerate
+
 
 endmodule
 
