@@ -15,9 +15,9 @@
 # IO banks setting
 #
 
-set_iobank Bank3 -vcci 2.50 -fixed no
-set_iobank Bank2 -vcci 2.50 -fixed no
-set_iobank Bank1 -vcci 2.50 -fixed no
+set_iobank Bank3 -vcci 2.50 -fixed yes
+set_iobank Bank2 -vcci 2.50 -fixed yes
+set_iobank Bank1 -vcci 2.50 -fixed yes
 
 #
 # I/O constraints

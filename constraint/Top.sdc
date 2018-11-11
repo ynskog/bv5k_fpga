@@ -2,7 +2,7 @@
 #  SDC WRITER VERSION "3.1";
 #  DESIGN "Top";
 #  Timing constraints scenario: "Primary";
-#  DATE "Sun Oct 14 11:19:49 2018";
+#  DATE "Sun Nov 11 11:09:38 2018";
 #  VENDOR "Actel";
 #  PROGRAM "Microsemi Libero Software Release v11.8 SP3";
 #  VERSION "11.8.3.6"  Copyright (C) 1989-2018 Actel Corp. 
@@ -14,21 +14,15 @@ set sdc_version 1.7
 
 ########  Clock Constraints  ########
 
-create_clock  -name { u_mainPll/Core:GLA } -period 27.7 { u_mainPll/Core:GLA  } 
-#
-# *** Note *** This constraint was converted from a create_generated_clock constraint
-#              which used both -divide_by and -multiply_by options:
-#              create_generated_clock  -name { u_mainPll/Core:GLA } -divide_by 16  -multiply_by 41  -source { u_mainPll/Core:CLKA } { u_mainPll/Core:GLA  } 
-
+create_clock  -name { main } -period 27.700 -waveform { 0.000 13.850  }  { u_mainPll/Core:GLA  } 
 
 create_clock  -name { clk25 } -period 40.000 -waveform { 0.000 20.000  }  { xosc  } 
 
-create_clock  -name { com_sck } -period 31.250 -waveform { 15.625 0.000  }  { com_sck  } 
+create_clock  -name { com_sck } -period 31.250 -waveform { 15.625 0.000  }  { INBUF_LVDS_1/U0/U1:Y  } 
 
 
 
 ########  Generated Clock Constraints  ########
-
 
 
 
@@ -70,9 +64,9 @@ create_clock  -name { com_sck } -period 31.250 -waveform { 15.625 0.000  }  { co
 
 ########  Clock Uncertainty Constraints #########
 
-set_clock_uncertainty 0.8 -from { clk25 } -to { u_mainPll/Core:GLA }
+set_clock_uncertainty 0.8 -from { clk25 } -to { main }
 
-set_clock_uncertainty 0.8 -from { u_mainPll/Core:GLA } -to { clk25 }
+set_clock_uncertainty 0.8 -from { main } -to { clk25 }
 
 
 

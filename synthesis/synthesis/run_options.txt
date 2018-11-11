@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version L-2016.09M-2
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\synthesis\run_options.txt
-#--  Written on Sat Nov 10 16:26:29 2018
+#--  Written on Sun Nov 11 11:42:18 2018
 
 
 #project files
@@ -13,7 +13,7 @@ add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledc
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
 add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
-add_file -ident_constraint "synthesis_identify/identify.idc"
+add_file -constraint "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/constraint/Top.sdc"
 
 
 
@@ -44,7 +44,6 @@ set_option -distributed_compile 0
 
 # mapper_without_write_options
 set_option -frequency 36.000000
-set_option -identify_debug_mode 1
 set_option -srs_instrumentation 1
 
 # mapper_options
@@ -75,7 +74,7 @@ set_option -symbolic_fsm_compiler 1
 
 # Compiler Options
 set_option -compiler_compatible 0
-set_option -resource_sharing 1
+set_option -resource_sharing 0
 
 # Compiler Options
 set_option -auto_infer_blackbox 0

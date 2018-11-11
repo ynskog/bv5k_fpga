@@ -36,12 +36,13 @@ module Top (
     localparam DEBUG      = 0;
 
     localparam DOWNSAMPLING_FACTOR = 64;
+    localparam BLOCKSIZE = 1024;
 
     // AGC interface
     logic agc_load;
     logic [11:0] agc_data;
 
-    logic [14:0] fifo_rdcnt;
+    logic [13:0] fifo_rdcnt;
     logic [10:0] fifo_wrcnt;
     logic fifo_rd;
 
@@ -105,9 +106,22 @@ module Top (
             .PADP ( rdy_p ),
             .PADN ( rdy_n ) );
 
+    //CLKBUF_LVDS CLKBUF_LVDS_1
+    //    (.PADP(sck_p),
+    //     .PADN(sck_n),
+    //     .Y(com_sck));
+
 // Interfaces
 
-    assign agc_clrn = arstn;
+    logic sync_rg;
+    logic sck_synced;
+
+    always_ff @(posedge clk) begin
+        sck_synced<= sync_rg;
+        sync_rg <= com_sck;
+    end
+
+ assign agc_clrn = arstn;
 
  spiMasterWrite #(.DATA_WIDTH(16)) u_AgcCtrl (
     .clk(clk), 
@@ -212,7 +226,8 @@ module Top (
         .valida(adc_Q_valida),
         .validb(adc_Q_validb));
 
-    adc_fifo u_adc_fifo ( /* synthesis syn_noprune=1 */
+    adc_fifo u_adc_fifo ( 
+           //.DATA({31'hffffffff,adc_I_dataa[0],31'hffffffff,adc_Q_dataa[0]}),
            .DATA({adc_I_dataa,adc_Q_dataa}),
            .Q(fifo_rdata),
            .WE(adc_I_valida),
@@ -225,15 +240,21 @@ module Top (
            .EMPTY(fifo_empty),
            .RESET(arstn));
 
-   master_if #(.BLOCKSIZE(1024)) u_master_if
+   master_if u_master_if
     (.clk(com_sck),
      .arstn(arstn),
      .wrcnt(fifo_wrcnt),
      .mosi(com_mosi),
      .fifoRd(fifo_rd),
      .rdata(fifo_rdata),
-     .miso(com_miso), 
-     .rdy(com_rdy));
+     .miso(com_miso));
+
+    always_ff @(posedge clk) begin
+        if( (fifo_wrcnt*8 >= BLOCKSIZE) )
+            com_rdy <= '1;
+        else
+            com_rdy <= '0;
+    end
 
     generate 
         if(LEDBLINK)begin
@@ -243,9 +264,10 @@ module Top (
               .green({led1_blu,led2_blu}),
               .blue({led1_grn,led2_grn}));
         end else begin
-            assign led1_grn = fifo_empty;
+            assign led1_grn = '0;
             assign led1_blu = fifo_full;
-            assign {led2_blu,led2_grn} = 2'b00;
+            assign led2_blu = com_rdy;
+            assign led2_grn = adc_I_valida;
         end
     endgenerate
 
