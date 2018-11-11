@@ -11,7 +11,7 @@ module master_if
     reg [2:0] bitcnt;
     reg [3:0] state_rg;
 
-    parameter idle_s=1, read1_s=2, read2_s=3,transfer_s=4;
+    parameter idle_s=0, read1_s=1, read2_s=2,transfer_s=3;
 
     assign miso = rdata[bitcnt];
 

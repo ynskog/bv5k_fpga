@@ -14,11 +14,11 @@ set sdc_version 1.7
 
 ########  Clock Constraints  ########
 
-create_clock  -name { main } -period 27.700 -waveform { 0.000 13.850  }  { u_mainPll/Core:GLA  } 
+create_clock  -name { main } -period 27.700 { u_mainPll/Core:GLA  } 
 
-create_clock  -name { clk25 } -period 40.000 -waveform { 0.000 20.000  }  { xosc  } 
+create_clock  -name { clk25 } -period 40.000 { xosc  } 
 
-create_clock  -name { com_sck } -period 31.250 -waveform { 15.625 0.000  }  { INBUF_LVDS_1/U0/U1:Y  } 
+create_clock  -name { com_sck } -period 31.125 { INBUF_LVDS_1/U0/U1:Y  } 
 
 
 

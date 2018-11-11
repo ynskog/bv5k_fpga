@@ -36,14 +36,14 @@ module Top (
     localparam DEBUG      = 0;
 
     localparam DOWNSAMPLING_FACTOR = 64;
-    localparam BLOCKSIZE = 1024;
+    localparam BLOCKSIZE = 8192;
 
     // AGC interface
     logic agc_load;
     logic [11:0] agc_data;
 
-    logic [13:0] fifo_rdcnt;
-    logic [10:0] fifo_wrcnt;
+    logic [14:0] fifo_rdcnt;
+    logic [11:0] fifo_wrcnt;
     logic fifo_rd;
 
     logic com_mosi, com_miso, com_sck, com_rdy;
@@ -227,8 +227,8 @@ module Top (
         .validb(adc_Q_validb));
 
     adc_fifo u_adc_fifo ( 
-           //.DATA({31'hffffffff,adc_I_dataa[0],31'hffffffff,adc_Q_dataa[0]}),
-           .DATA({adc_I_dataa,adc_Q_dataa}),
+           .DATA({31'hffffffff,adc_I_dataa[0],31'hffffffff,adc_Q_dataa[0]}),
+           //.DATA({adc_I_dataa,adc_Q_dataa}),
            .Q(fifo_rdata),
            .WE(adc_I_valida),
            .RE(fifo_rd),
@@ -240,17 +240,16 @@ module Top (
            .EMPTY(fifo_empty),
            .RESET(arstn));
 
-   master_if u_master_if
+   master_if #(.BLOCKSIZE(BLOCKSIZE)) u_master_if
     (.clk(com_sck),
      .arstn(arstn),
-     .wrcnt(fifo_wrcnt),
      .mosi(com_mosi),
      .fifoRd(fifo_rd),
      .rdata(fifo_rdata),
      .miso(com_miso));
 
     always_ff @(posedge clk) begin
-        if( (fifo_wrcnt*8 >= BLOCKSIZE) )
+        if( (fifo_wrcnt*4 >= BLOCKSIZE) )
             com_rdy <= '1;
         else
             com_rdy <= '0;
