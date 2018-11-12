@@ -1,21 +1,18 @@
-#--  Synopsys, Inc.
-#--  Version L-2016.09M-2
-#--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\Top_syn.prj
-#--  Written on Sun Nov 11 14:57:41 2018
+#add_file options
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/VCO_ctrl.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/adc_fifo/adc_fifo.v"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledctrl.v"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.sv"
+add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
+add_file -constraint "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/constraint/Top.sdc"
+
 
 
 #project files
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/spiMasterWrite.sv"
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/VCO_ctrl.sv"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/adc_fifo/adc_fifo.v"
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.sv"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledctrl.v"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
-add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
-add_file -constraint "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/constraint/Top.sdc"
 add_file -ident_constraint "synthesis_identify/identify.idc"
-
 
 
 #implementation: "synthesis"
@@ -24,28 +21,26 @@ impl -add synthesis -type fpga
 #
 #implementation attributes
 
-set_option -vlog_std sysv
-
 #par_1 attributes
 set_option -job par_1 -add par
+
+set_option -vlog_std sysv
 
 #device options
 set_option -technology ProASIC3
 set_option -part A3P1000
 set_option -package FBGA144
 set_option -speed_grade -1
-set_option -part_companion ""
-
 #compilation/mapping options
 set_option -use_fsm_explorer 0
-set_option -top_module "Top"
-
 # hdl_compiler_options
 set_option -distributed_compile 0
 
 # mapper_without_write_options
 set_option -frequency 36.000000
 set_option -srs_instrumentation 1
+
+set_option -top_module Top
 
 # mapper_options
 set_option -write_verilog 0
@@ -57,13 +52,10 @@ set_option -rw_check_on_ram 0
 # Microsemi 500K
 set_option -run_prop_extract 1
 set_option -maxfan 24
-set_option -disable_io_insertion 0
 set_option -retiming 1
 set_option -report_path 4000
-set_option -opcond COMWC
 set_option -update_models_cp 0
 set_option -preserve_registers 0
-
 # Microsemi 500K
 set_option -globalthreshold 50
 
@@ -94,22 +86,18 @@ impl -add synthesis_identify -type fpga
 #
 #implementation attributes
 
-set_option -vlog_std sysv
-
 #par_1 attributes
 set_option -job par_1 -add par
+
+set_option -vlog_std sysv
 
 #device options
 set_option -technology ProASIC3
 set_option -part A3P1000
 set_option -package FBGA144
 set_option -speed_grade -1
-set_option -part_companion ""
-
 #compilation/mapping options
 set_option -use_fsm_explorer 0
-set_option -top_module "Top"
-
 # hdl_compiler_options
 set_option -distributed_compile 0
 
@@ -117,6 +105,8 @@ set_option -distributed_compile 0
 set_option -frequency 36.000000
 set_option -identify_debug_mode 1
 set_option -srs_instrumentation 1
+
+set_option -top_module Top
 
 # mapper_options
 set_option -write_verilog 0
@@ -128,13 +118,10 @@ set_option -rw_check_on_ram 0
 # Microsemi 500K
 set_option -run_prop_extract 1
 set_option -maxfan 24
-set_option -disable_io_insertion 0
 set_option -retiming 1
 set_option -report_path 4000
-set_option -opcond COMWC
 set_option -update_models_cp 0
 set_option -preserve_registers 0
-
 # Microsemi 500K
 set_option -globalthreshold 50
 

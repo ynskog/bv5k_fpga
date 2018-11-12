@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version L-2016.09M-2
 #--  Project file C:\Users\yngve\Dropbox\projects\bilradar\fpga\bv5000\synthesis\synthesis\run_options.txt
-#--  Written on Sun Nov 11 14:57:37 2018
+#--  Written on Mon Nov 12 19:06:52 2018
 
 
 #project files
@@ -11,7 +11,7 @@ add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen
 add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/adc_if.sv"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/ledctrl.v"
 add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/smartgen/mainPll/mainPll.v"
-add_file -verilog "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.v"
+add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/master_if.sv"
 add_file -verilog -vlog_std sysv "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/hdl/Top.sv"
 add_file -constraint "C:/Users/yngve/Dropbox/projects/bilradar/fpga/bv5000/constraint/Top.sdc"
 add_file -ident_constraint "synthesis_identify/identify.idc"

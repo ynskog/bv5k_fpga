@@ -1,6 +1,6 @@
 
 
-module Top ( 
+module Top #(parameter BLOCKSIZE=8192) ( 
 
     // ADC interfaces
     // Q channel
@@ -36,7 +36,6 @@ module Top (
     localparam DEBUG      = 0;
 
     localparam DOWNSAMPLING_FACTOR = 64;
-    localparam BLOCKSIZE = 8192;
 
     // AGC interface
     logic agc_load;
@@ -44,7 +43,7 @@ module Top (
 
     logic [14:0] fifo_rdcnt;
     logic [11:0] fifo_wrcnt;
-    logic fifo_rd;
+    logic fifo_rd, fifo_clr,fifo_reset;
 
     logic com_mosi, com_miso, com_sck, com_rdy;
     logic clk, arstn;
@@ -116,9 +115,14 @@ module Top (
     logic sync_rg;
     logic sck_synced;
 
-    always_ff @(posedge clk) begin
-        sck_synced<= sync_rg;
-        sync_rg <= com_sck;
+    logic [7:0] debug_cnt;
+
+    always @(posedge clk, negedge arstn) begin
+        if(arstn == 1'b0) begin
+            debug_cnt <= 0;
+        end else if(adc_I_valida) begin
+            debug_cnt <= debug_cnt + 1;
+        end
     end
 
  assign agc_clrn = arstn;
@@ -227,7 +231,8 @@ module Top (
         .validb(adc_Q_validb));
 
     adc_fifo u_adc_fifo ( 
-           .DATA({31'hffffffff,adc_I_dataa[0],31'hffffffff,adc_Q_dataa[0]}),
+           .DATA({52'h010307070301FF,debug_cnt,adc_I_dataa[31],adc_Q_dataa[31]}),
+           //.DATA({<<{8'hAA,debug_cnt, 15'hffff,~adc_I_dataa[31],8'h55,debug_cnt, 15'h0000,~adc_Q_dataa[31]}}),
            //.DATA({adc_I_dataa,adc_Q_dataa}),
            .Q(fifo_rdata),
            .WE(adc_I_valida),
@@ -238,13 +243,16 @@ module Top (
            .RCLOCK(com_sck),
            .FULL(fifo_full),
            .EMPTY(fifo_empty),
-           .RESET(arstn));
+           .RESET(fifo_reset));
+
+    assign fifo_reset = arstn & ~fifo_clr;
 
    master_if #(.BLOCKSIZE(BLOCKSIZE)) u_master_if
     (.clk(com_sck),
      .arstn(arstn),
      .mosi(com_mosi),
      .fifoRd(fifo_rd),
+     .fifoClr(fifo_clr),
      .rdata(fifo_rdata),
      .miso(com_miso));
 
@@ -263,7 +271,7 @@ module Top (
               .green({led1_blu,led2_blu}),
               .blue({led1_grn,led2_grn}));
         end else begin
-            assign led1_grn = '0;
+            assign led1_grn = fifo_clr;
             assign led1_blu = fifo_full;
             assign led2_blu = com_rdy;
             assign led2_grn = adc_I_valida;
@@ -293,7 +301,6 @@ module Top (
             assign {vco_sclk,vco_csn,vco_clrn,vco_din} = 4'b0000;
         end
     endgenerate
-
 
 endmodule
 

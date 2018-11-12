@@ -31,23 +31,25 @@ always @(SYSCLK)
     #(SYSCLK_PERIOD / 2.0) SYSCLK <= !SYSCLK;
 
 
+localparam BLOCKSIZE = 1024;
+
 // Interface to AGC DAC
-wire agc_din, agc_sclk, agc_csn, agc_clrn;
+logic agc_din, agc_sclk, agc_csn, agc_clrn;
 
 // Interface to VCO DAC
-wire vco_din, vco_sclk, vco_csn, vco_clrn;
+logic vco_din, vco_sclk, vco_csn, vco_clrn;
 
-reg drl_i, drl_q;
-reg busy_i, busy_q;
-wire mclk_i, mclk_q;
-wire scka_i, scka_q;
-reg sdoa_i, sdoa_q;
-reg com_mosi;
-wire mosi_p, mosi_n;
-reg com_sck;
-wire sck_p, sck_n;
-wire rdy_p, rdy_n, com_rdy;
-wire [3:0] led;
+logic drl_i, drl_q;
+logic busy_i, busy_q;
+logic mclk_i, mclk_q;
+logic scka_i, scka_q;
+logic sdoa_i, sdoa_q;
+logic com_mosi;
+logic mosi_p, mosi_n;
+logic com_sck;
+logic sck_p, sck_n;
+logic rdy_p, rdy_n, com_rdy;
+logic [3:0] led;
 
 // very simple adc simulator
 initial forever begin
@@ -80,20 +82,59 @@ end
 initial begin
     com_mosi = 1'b0;
     com_sck = 1'b0;
+
+    #200000;
+
+    com_mosi <= 1'b1;
+    #20;
+    repeat(4) begin
+        com_sck = 1'b1;
+        #20;
+        com_sck = 1'b0;
+        #20;
+    end
+    com_sck = 1'b1;
+    #20;
+    com_sck = 1'b0;
+    com_mosi <= 1'b0;
+    #20; 
+    com_sck = 1'b1;
+    #20;
+    com_sck = 1'b0;
+    com_mosi <= 1'b1;
+    #20; 
+    com_sck = 1'b1;
+    #20;
+    com_sck = 1'b0;
+    #20;
+    com_sck = 1'b1;
+    #20;
+    com_sck = 1'b0;
+    #20; 
+
     forever begin
         @(posedge com_rdy);
         com_mosi <= 1'b1;
-        repeat(6) begin
+        #20;
+        repeat(4) begin
             com_sck = 1'b1;
             #20;
             com_sck = 1'b0;
             #20;
         end
+        com_sck = 1'b1;
+        #20;
+        com_sck = 1'b0;
         com_mosi <= 1'b0;
+        #20; 
         com_sck = 1'b1;
         #20;
         com_sck = 1'b0;
         #20; 
+        com_sck = 1'b1;
+        #20;
+        com_sck = 1'b0;
+        #20;
         com_sck = 1'b1;
         #20;
         com_sck = 1'b0;
@@ -134,7 +175,7 @@ OUTBUF_LVDS u1_OUTBUF_LVDS(
 //////////////////////////////////////////////////////////////////////
 // Instantiate Unit Under Test:  Top
 //////////////////////////////////////////////////////////////////////
-Top Top_0 (
+Top #(.BLOCKSIZE(BLOCKSIZE)) Top_0  (
     // Inputs
     .sdoa_q(sdoa_q),
     .sdob_q({1{1'b0}}),
