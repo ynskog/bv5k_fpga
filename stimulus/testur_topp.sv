@@ -83,7 +83,7 @@ initial begin
     com_mosi = 1'b0;
     com_sck = 1'b0;
 
-    #200000;
+    #2000000;
 
     com_mosi <= 1'b1;
     #20;
@@ -139,7 +139,7 @@ initial begin
         #20;
         com_sck = 1'b0;
         #20; 
-        repeat(1024) begin
+        repeat(BLOCKSIZE-1) begin
             #100;
             repeat(8) begin
                 com_sck = 1'b1;
@@ -147,6 +147,14 @@ initial begin
                 com_sck = 1'b0;
                 #20;
             end
+        end
+        com_mosi <= 1'b1;
+        #20; 
+        repeat(8) begin
+            com_sck = 1'b1;
+            #20;
+            com_sck = 1'b0;
+            #20;
         end
     end
 end

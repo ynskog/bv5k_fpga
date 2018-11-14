@@ -1,6 +1,6 @@
 
 
-module Top #(parameter BLOCKSIZE=8192) ( 
+module Top #(parameter BLOCKSIZE=4096) ( 
 
     // ADC interfaces
     // Q channel
@@ -114,6 +114,8 @@ module Top #(parameter BLOCKSIZE=8192) (
 
     logic sync_rg;
     logic sck_synced;
+    logic [63:0] fifo_wdata;
+
 
     logic [7:0] debug_cnt;
 
@@ -230,9 +232,12 @@ module Top #(parameter BLOCKSIZE=8192) (
         .valida(adc_Q_valida),
         .validb(adc_Q_validb));
 
+    assign fifo_wdata = {adc_I_dataa[31],adc_Q_dataa[31],62'h1122334455667788};
+
     adc_fifo u_adc_fifo ( 
-           .DATA({52'h010307070301FF,debug_cnt,adc_I_dataa[31],adc_Q_dataa[31]}),
+           //.DATA({52'h010307070301FF,debug_cnt,adc_I_dataa[31],adc_Q_dataa[31]}),
            //.DATA({<<{8'hAA,debug_cnt, 15'hffff,~adc_I_dataa[31],8'h55,debug_cnt, 15'h0000,~adc_Q_dataa[31]}}),
+           .DATA(fifo_wdata),
            //.DATA({adc_I_dataa,adc_Q_dataa}),
            .Q(fifo_rdata),
            .WE(adc_I_valida),
