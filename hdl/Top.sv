@@ -1,6 +1,6 @@
 
 
-module Top #(parameter BLOCKSIZE=4096) ( 
+module Top #(parameter BLOCKSIZE=8192) ( 
 
     // ADC interfaces
     // Q channel
@@ -35,7 +35,7 @@ module Top #(parameter BLOCKSIZE=4096) (
     localparam VCO_ENABLE = 0;
     localparam DEBUG      = 0;
 
-    localparam DOWNSAMPLING_FACTOR = 64;
+    localparam DOWNSAMPLING_FACTOR = 256;
 
     // AGC interface
     logic agc_load;
@@ -152,8 +152,8 @@ module Top #(parameter BLOCKSIZE=4096) (
             adc_Q_enable <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
-            adc_I_ctrlword <= 10'b0000100100;
-            adc_Q_ctrlword <= 10'b0000100100;
+            adc_I_ctrlword <= 10'b0010000011;
+            adc_Q_ctrlword <= 10'b0010000011;
         end else begin
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
@@ -232,7 +232,7 @@ module Top #(parameter BLOCKSIZE=4096) (
         .valida(adc_Q_valida),
         .validb(adc_Q_validb));
 
-    assign fifo_wdata = {adc_I_dataa[31],adc_Q_dataa[31],62'h1122334455667788};
+    assign fifo_wdata = {adc_I_dataa,adc_Q_dataa};
 
     adc_fifo u_adc_fifo ( 
            //.DATA({52'h010307070301FF,debug_cnt,adc_I_dataa[31],adc_Q_dataa[31]}),
