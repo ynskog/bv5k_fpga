@@ -35,7 +35,9 @@ module Top #(parameter BLOCKSIZE=8192) (
     localparam VCO_ENABLE = 0;
     localparam DEBUG      = 0;
 
-    localparam DOWNSAMPLING_FACTOR = 256;
+    localparam FLIR_ENABLE = 1;
+
+    localparam DOWNSAMPLING_FACTOR = 64;
 
     // AGC interface
     logic agc_load;
@@ -152,8 +154,8 @@ module Top #(parameter BLOCKSIZE=8192) (
             adc_Q_enable <= 1'b0;
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
-            adc_I_ctrlword <= 10'b0010000011;
-            adc_Q_ctrlword <= 10'b0010000011;
+            adc_I_ctrlword <= 10'b0001100011;
+            adc_Q_ctrlword <= 10'b0001100011;
         end else begin
             adc_I_ldctrl <= 1'b0;
             adc_Q_ldctrl <= 1'b0;
@@ -183,7 +185,7 @@ module Top #(parameter BLOCKSIZE=8192) (
                 adc_Q_enable <= 1'b0;
             end
 
-            if(eventCnt == 1000) agc_load <= 1'b1;
+            if(eventCnt == 1000000) agc_load <= 1'b1;
 
         end
     end
